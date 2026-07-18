@@ -1,0 +1,3 @@
+evidence/**/raw/
+*.tmp
+__pycache__/
