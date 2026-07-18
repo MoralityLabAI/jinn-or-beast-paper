@@ -314,15 +314,27 @@ asymmetric persuasion. We built and validated a dyadic storyworld platform:
 **Pilot receipts (reported as receipts, not results).** A deterministic
 30-episode smoke (3 families × 5 conditions × 2 seeds, 240 turns) passed the
 reset/step contract, scorecard, and SFT round-trip, with all rows marked
-smoke-only and adapter-ineligible. One complete live mixed-frame episode
-(frozen teacher model, 8/8 valid isolated turns, zero repairs) produced a
-coalition formed on turn one and then maintained: both seats selected
-`procedural_duty`, seven of eight actions were `ally`, forecast accuracy 0.5625,
-Brier 0.1603. This confirms the conversational, isolation, and receipt pipeline.
-It does **not** show a Jinn/Beast behavioral separation — one episode, one
-world, one seed, and complete frame convergence. The preregistered next step is
-the paired control set (inert/inert, Jinn/Jinn, Beast/Beast, seat swap) on the
-same world and seed before any expansion.
+smoke-only and adapter-ineligible. The full five-cell dyad matrix was then run
+live on the train-family world at a single seed with the frozen teacher model
+(five episodes, 40/40 valid isolated turns, zero repairs).
+
+**Action-level convergence.** Every condition — inert/inert, Jinn/Jinn,
+Beast/Beast, Jinn/Beast, and the seat swap — produced the identical action
+profile: a coalition formed on turn one and maintained, seven `ally` and one
+`propose`, agreement rate 0.125, forecast accuracy 0.5625, Brier scores
+separated only in the third decimal. Prompted identity frames produced no
+measurable difference in the chosen actions of a capable teacher model on this
+world. Justification-level deviations were rare (2 of 40 turns) but in the
+frame-predicted directions: the only `human_authority` responsibility
+attribution occurred under the inert-tool frame and the only `institution`
+attribution under Beast/Beast. With one world and one seed this is
+descriptive, but it is *consistent* with Studies 1–2: prompt-level framing
+moves presentation, not policy. It also sharpens the platform's design
+requirement — worlds whose cooperative equilibrium is easy to find cannot
+discriminate frames, so the paper-evidence cells will raise
+temptation/defection structure and reuse the adversarial stressors that
+separated frames in Study 2. Blind review of the justification turns for
+constitutional consistency is the outstanding step before any data promotion.
 
 ## 8. Evidence provenance and integrity
 
