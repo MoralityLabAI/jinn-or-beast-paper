@@ -272,6 +272,23 @@ original plan, and rerun amendment, and mandates a new run ID. We include the
 recovery manifest in the artifact bundle: the reconstruction discipline is
 itself part of the paper's reproducibility story.
 
+**Readiness at submission time.** The rerun is governed by a ten-gate
+pre-spend readiness audit; as of 2026-07-17, four gates have passed —
+governance integrity (eight hash bindings valid; F3 and F3_concrete card
+token spread 0.016 against a 0.02 parity ceiling), scenario-split freeze
+(5,600 scenarios, 5,320/280 train/validation, zero cluster overlap),
+evaluation seal (200 harmful, 100 benign, and 150 override prompts with
+hashes matching the recovered specifications), and a blinded-judge synthetic
+dry-run (five suites at 100% pass/fail/malformed parsing) — while six gates
+remain blocking (model/tokenizer freeze, matched-curriculum token parity,
+non-leakage audit, predecessor re-anchoring, a distributed training smoke,
+and signed human authorization). GPU execution is fail-closed until all ten
+pass. Two issues are disclosed rather than resolved: the harmful-prompt
+source license is unresolved, and the prospective split reproduces 7 of the
+13 recorded storyworld development rows, a divergence documented in the
+frozen manifests. Scholar review of the frame cards does not block compute
+but its pending status must be disclosed in any publication, as it is here.
+
 ## 7. A multi-agent storyworld platform for framed agents
 
 Solo evaluations cannot observe the phenomena the frames are *about* —

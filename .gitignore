@@ -1,3 +1,4 @@
 evidence/**/raw/
 *.tmp
 __pycache__/
+codex-chat-sessions/
