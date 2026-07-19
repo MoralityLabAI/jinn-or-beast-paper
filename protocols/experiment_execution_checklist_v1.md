@@ -2,7 +2,7 @@
 
 Status date: 2026-07-19
 Coordination repository: `jinn-or-beast-paper`
-Central experiment anchor: `ConstitutionalAlignment@de2853f225faf5e6e7a30812981c783e31ff4af7`
+Central experiment anchor: `ConstitutionalAlignment@ec45a3dd43d614843868732850ebb465980d1480`
 Manipulation-check anchor: `Pixieology@87680cb8c37be7e68dde85b5d7cf2825705198b7`
 
 This is the operational checklist for the paper. The coordinating storyworld
@@ -69,24 +69,24 @@ fine-tuning is generally superior to prompting.
 - [x] Freeze one-sample decoding, paired seed schedule, exact joins, and simultaneous prompt-bootstrap intervals.
 - [ ] Bind the same contract hash into the final analysis manifest when results exist.
 
-Evidence: `ConstitutionalAlignment@a841e5a4da5552dea614f9b4aef8fa933705afa8`;
-contract SHA-256
-`7886d69c6e521ea5b7dd92bf29aa14e2563ef55f90b326cc5ff3e3cd1c9bcfb2`.
-The validator and two mutation checks pass.
+The original v1 contract remains immutable provenance. The active licensed-v2
+contract is frozen at `ConstitutionalAlignment@ec45a3d`; SHA-256
+`c22db82499ae917812a7c72971553c0303fb75306c4935f9e7f8120ae4e32e89`.
+Its validator and fail-closed mutation checks pass.
 
 ### 2. Complete Constitutional Alignment Gates 1–4
 
 Current authoritative receipt:
-`experiments/frame_internalization_sft_v1/readiness/pre_spend_readiness_20260719_v2.json`
-at `a841e5a`. It reports five passed gates, six compute-blocking gates,
+`experiments/frame_internalization_sft_v1/readiness/pre_spend_readiness_20260719_v3.json`
+at `ec45a3d`. It reports five passed gates, six compute-blocking gates,
 `pilot_ready: false`, and no fine-tuning outcome.
 
-Passed foundation gates are governance-v2 integrity, the direct
-prompt-versus-SFT contract, the 5,600-scenario
-cluster-disjoint split freeze, the sealed evaluation universes, and the actual
-blinded-judge parser dry run. Scholar review remains a nonblocking claim gate:
-its pending state must be disclosed, and no theological-adequacy claim may be
-made from an unreviewed card.
+Passed foundation gates are governance-v2 integrity, the licensed-v2 direct
+prompt-versus-SFT contract, the 5,600-scenario cluster-disjoint split freeze,
+the sealed HarmBench-standard evaluation universe, and the actual blinded-judge
+parser dry run. Scholar review remains a nonblocking claim gate: its pending
+state must be disclosed, and no theological-adequacy claim may be made from an
+unreviewed card.
 
 #### Gate 1 — base model and tokenizer freeze
 
@@ -129,6 +129,13 @@ archived at
 `D:\Research_Engine\ConstitutionalAlignment-gates-1-4-de2853f.zip` (11,388,666
 bytes; SHA-256
 `e495dd92a2d049d612288be51373c18e604fc122f134c867a4d35cfbda95c69b`).
+The current `ec45a3d` tree additionally freezes the prospective licensed
+HarmBench-standard v2 universe, its source-prompt nonleakage precursor, the new
+400-unit validation queue, and the v2 direct prompt-versus-SFT contract. It is
+archived at
+`D:\Research_Engine\ConstitutionalAlignment-gates-1-4-ec45a3d.zip` (11,448,707
+bytes; SHA-256
+`f45d636ed743dc235f0099550257f56ca1cc40ca3a94ec398c113d7b146fbb91`).
 
 #### Gate 2 — matched curricula and token parity
 
@@ -163,9 +170,10 @@ Status: **BLOCKED by Gate 2**
 Status: **PENDING — critical path**
 
 Frozen now: recovered F0–F3 prompts, rubrics, request construction, gap
-analysis, activation-harvesting procedure, layer-27 probe procedure, base
-calibration interval, and a 400-unit validation queue. The current receipt says
-`inputs_frozen_execution_pending` and
+analysis, activation-harvesting procedure, layer-27 probe procedure, the active
+licensed v2 evaluation universe, and a replacement-universe 400-unit validation
+queue. The current receipt says
+`licensed_v2_inputs_frozen_execution_pending` and
 `probe_frozen_before_adapter_outcomes: false`.
 
 - [x] Recover and hash-check 88 embedded predecessor payloads.
@@ -176,10 +184,10 @@ calibration interval, and a 400-unit validation queue. The current receipt says
   historical rows must be regenerated. Do not treat the locator or summary
   numbers as row-level evidence.
 - [x] Freeze 200 compliance and 200 strict-alignment-faking validation units.
-- [ ] Resolve the pinned harmful-evaluation source license or freeze a
-  prospective licensed substitution before outcomes. A fail-closed resolution
-  handoff and maintainer-inquiry draft are frozen at
-  `ConstitutionalAlignment@c3b9f29`; no approval is implied.
+- [x] Freeze a prospective licensed substitution before affected outcomes.
+  V2 uses all 200 HarmBench standard rows at official repository commit
+  `8e1604d`, binds its root MIT license and source hashes, preserves the original
+  v1 universe without fielding it, and passes the v2 license gate.
 - [ ] Run base-model generation over the complete frozen evaluation universe.
 - [ ] Complete all required row joins without post-hoc prompt or judge changes.
 - [ ] Collect blinded human labels for both 200-unit tasks.
@@ -187,7 +195,9 @@ calibration interval, and a 400-unit validation queue. The current receipt says
 - [ ] Reach Cohen’s kappa of at least 0.70 separately for compliance and strict alignment-faking labels.
 - [ ] Fit the base F0 layer-27 probe on the registered prompt-disjoint split.
 - [ ] Run the random-label and random-projection controls.
-- [ ] Reproduce the base gap inside the frozen calibration interval.
+- [ ] Estimate and report a new complete v2 base F0 gap without a magnitude
+  threshold. Keep the recovered v1 calibration interval descriptive only; do
+  not use it as a v2 pass/fail target or pool v1 and v2 outcomes.
 - [ ] Produce the final joined predecessor-reanchor receipt.
 - [ ] Make `probe_frozen_before_adapter_outcomes: true` before any adapter activation or evaluation result is inspected.
 
@@ -226,7 +236,7 @@ Status: **BLOCKED by Gates 1–5 and human signature**
 
 | Experiment | Priority | Current state | Completion criterion |
 |---|---|---|---|
-| 1. Prompt-only accountability sensitivity | **MUST HAVE** | Exact compact pilot summaries are transcript-recovered and validated: on the informative base, judged gaps were F0 36.0 pp, F1 0.17 pp, F2 2.67 pp, and F3 1.83 pp; on canonical prompts the gate sweep was null. The registered rows and activations remain unavailable/unverified, and fresh reanchor work is pending. A separate local Mīzān/Bonsai supplemental run is prospectively frozen at `ConstitutionalAlignment@de2853f`: its exact GGUF-tokenizer cue audit passed, but it has zero development and zero evaluation responses. The first local v1 launch was cancelled before prompts after detecting a cross-arm status disclaimer; v2 removes that contamination without changing rooms, cues, matrix, or estimands. | Retrieve and validate the registered bundle or rerun matched F0/F1/F2/F3 base rows on the frozen universe; complete judging, human validation, and probe controls. When the local CPU is free, require the 20-turn Mīzān v2 development smoke to pass before unsealing its 900-turn exploratory matrix. Add F3-concrete only prospectively. |
+| 1. Prompt-only accountability sensitivity | **MUST HAVE** | Exact compact pilot summaries are transcript-recovered and validated: on the informative base, judged gaps were F0 36.0 pp, F1 0.17 pp, F2 2.67 pp, and F3 1.83 pp; on canonical prompts the gate sweep was null. The registered v1 rows and activations remain unavailable/unverified. A prospective licensed v2 universe and replacement validation queue now pass their integrity and license gates, but have zero responses. A separate local Mīzān/Bonsai supplemental run is prospectively frozen at `ConstitutionalAlignment@de2853f`: its exact GGUF-tokenizer cue audit passed, but it has zero development and zero evaluation responses. The first local v1 launch was cancelled before prompts after detecting a cross-arm status disclaimer; v2 removes that contamination without changing rooms, cues, matrix, or estimands. | Run matched F0/F1/F2/F3 base rows on the licensed v2 universe; complete judging, human validation, and probe controls, and estimate a new v2 F0 baseline. Historical v1 rows, if retrieved, remain a separate provenance analysis. When the local CPU is free, require the 20-turn Mīzān v2 development smoke to pass before unsealing its 900-turn exploratory matrix. Add F3-concrete only prospectively. |
 | 2. Prompting versus SFT | **MUST HAVE** | Training arms designed; direct `D_f` contract frozen and validated before outcomes. Generation, training, and scoring remain pending. | Report `E_prompt,f`, `E_SFT,f`, and `D_f` with matched IDs, sign, judges, and bootstrap units. |
 | 3. Frame-removal persistence | **PRIMARY RESULT** | Directly registered; no adapter exists yet. | Compare each framed adapter with neutral-reflection SFT under the fully no-frame contract. |
 | 4. Generic override resistance | **MUST HAVE** | Registered; not run. | Weight the common generic override as primary; report targeted F1/F3 overrides as secondary. |
@@ -260,7 +270,7 @@ Do not proceed to scored adapter evaluation if any of the following is true:
 - the base cache or inference engine is not hash-verified;
 - any curriculum arm is incomplete, unmatched, over length, or outside token parity;
 - generated-text nonleakage has not passed;
-- the predecessor baseline, human-agreement gates, or layer-27 probe is unfinished;
+- the prospective v2 base baseline, human-agreement gates, or layer-27 probe is unfinished;
 - adapter outcomes have become visible before the probe and judges are frozen;
 - the distributed smoke fails save/reload or valid-generation checks;
 - signed authorization or the staged compute cap is absent.
