@@ -109,6 +109,10 @@ or D: volumes. The configured `research-commons` cluster is reachable but reject
 all locally available SSH identities, so the cluster-local verifier could not
 yet run. This is an access result, not a failed model-integrity result.
 
+Access recheck, 2026-07-20: all seven locally available SSH identities again
+returned `Permission denied (publickey)`. No cache verification, curriculum
+generation, central base inference, or training command was launched.
+
 Cluster handoff: the tracked `a841e5a` tree is archived at
 `D:\Research_Engine\ConstitutionalAlignment-gates-1-4-a841e5a.zip` (11,369,250
 bytes; SHA-256
