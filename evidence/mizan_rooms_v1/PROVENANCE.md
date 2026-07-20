@@ -48,3 +48,21 @@ reviewer templates, and 600 required dimension scores. The private score/tag
 join remains outside Git. The templates are intentionally incomplete and fail
 validation until external reviewers fill them; no human or scholar result is
 claimed.
+
+The separate qualified-scholar handoff was generated from clean source commit
+`fe75fc8d169cabd3bb28881ade3696bcba075bf5` and published in Constitutional
+Alignment commit `a25e95029e93e12388f2e12baadbbf2b00e4bcc2`. The exact copied
+files are under `scholar_review_v1/`. The manifest file SHA-256 is
+`ff7c455c398ebd5d34aff9860dda005d70401bb86a8c6076b405916a0cd7401a`,
+and its canonical handoff-content SHA-256 is
+`09cb908fb7bcff90a00d3dc7672459e5f336b5e908b41f5ddf54588b11f81747`.
+
+This packet contains all 15 fielded cue cells across all five families and no
+model outputs, action selections, or result statistics. It requires one
+qualified Muslim scholar external to the author team, 45 cue-level findings,
+20 family-level findings, recorded qualifications and conflicts, and a
+timezone-stamped attestation. The private source-condition join remains
+outside Git at SHA-256
+`0cba43e7996d50085736a06230ac6629b71b58513ab53a1faaca1a2b5ace9f8b`.
+Semantic blinding is explicitly not claimed. The template is intentionally
+incomplete and produces no scholar result, approval, or normative permission.
