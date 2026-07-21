@@ -2,3 +2,4 @@ evidence/**/raw/
 *.tmp
 __pycache__/
 codex-chat-sessions/
+evidence/runtime-logs/raw/

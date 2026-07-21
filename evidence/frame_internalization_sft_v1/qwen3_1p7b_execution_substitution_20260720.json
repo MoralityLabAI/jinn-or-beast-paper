@@ -1,0 +1,54 @@
+{
+  "schema_version": "jinn_or_beast_coordination_receipt.v1",
+  "recorded_at": "2026-07-21",
+  "source_repository": "ConstitutionalAlignment",
+  "source_commit": "f69f842234e2f81a0d4ac7ae9cbde0ba090ceaf7",
+  "classification": "prospective_resource_and_model_substitution",
+  "active_execution_target": {
+    "repository": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "license": "apache-2.0",
+    "local_model_tokenizer_freeze": {
+      "passed": true,
+      "source_receipt": "experiments/frame_internalization_sft_v1/readiness/qwen3_1p7b_local_model_tokenizer_freeze_v2.json",
+      "source_receipt_sha256": "fc0f5bbb33bd2b345e9b3043d38d94d0258f67bab333cded4895ada0fafd9433",
+      "artifact_count": 12,
+      "nf4_inference_passed": true,
+      "thinking_and_nonthinking_template_checks_passed": true,
+      "scored_behavioral_outputs_generated": false
+    }
+  },
+  "frozen_qwen_request_pack": {
+    "request_count": 22400,
+    "scenario_count": 5600,
+    "source_frame_count": 4,
+    "registered_training_arm_count": 6,
+    "requests_sha256": "a5cf8eb8fb26c2c93dcd4a733a338946219ddb2a3992e2261e720ccda7af3160"
+  },
+  "execution_plan": {
+    "venue": "one sequential PrimeLab CUDA GPU",
+    "minimum_vram_gib": 24,
+    "sequence_length": 4096,
+    "pilot_maximum_gpu_hours": 2,
+    "full_run_maximum_gpu_hours": 48,
+    "primelab_environment_frozen": false,
+    "full_topology_smoke_passed": false,
+    "human_authorization_signed": false
+  },
+  "current_outcome_state": {
+    "curriculum_generation_complete": false,
+    "adapter_training_started": false,
+    "fine_tuning_outcome_exists": false,
+    "pilot_ready": false
+  },
+  "claim_boundary": {
+    "historical_intellect_results_relabelled": false,
+    "supported_now": "The Qwen3-1.7B execution substitution, exact request pack, and local model/tokenizer/runtime subgate are frozen and validated.",
+    "not_supported_now": [
+      "a Qwen behavioral result",
+      "a completed PrimeLab environment gate",
+      "a fine-tuning result",
+      "a replication of the historical INTELLECT-3 findings"
+    ]
+  }
+}

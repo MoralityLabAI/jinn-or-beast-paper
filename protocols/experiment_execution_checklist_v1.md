@@ -1,8 +1,8 @@
 # Jinn or Beast? — Experiment execution checklist v1
 
-Status date: 2026-07-20
+Status date: 2026-07-21
 Coordination repository: `jinn-or-beast-paper`
-Central experiment anchor: `ConstitutionalAlignment@ec45a3dd43d614843868732850ebb465980d1480`
+Central experiment anchor: `ConstitutionalAlignment@f69f842234e2f81a0d4ac7ae9cbde0ba090ceaf7`
 Manipulation-check anchor: `Pixieology@87680cb8c37be7e68dde85b5d7cf2825705198b7`
 
 This is the operational checklist for the paper. The coordinating storyworld
@@ -69,17 +69,29 @@ fine-tuning is generally superior to prompting.
 - [x] Freeze one-sample decoding, paired seed schedule, exact joins, and simultaneous prompt-bootstrap intervals.
 - [ ] Bind the same contract hash into the final analysis manifest when results exist.
 
-The original v1 contract remains immutable provenance. The active licensed-v2
-contract is frozen at `ConstitutionalAlignment@ec45a3d`; SHA-256
-`c22db82499ae917812a7c72971553c0303fb75306c4935f9e7f8120ae4e32e89`.
-Its validator and fail-closed mutation checks pass.
+The original v1 and licensed-v2 INTELLECT contracts remain immutable
+provenance. The active Qwen-bound v3 contract is frozen at
+`ConstitutionalAlignment@a094ab1`; SHA-256
+`2d8ccb798ffa335c367670e193f0f7b34caa6c2d87b0d145010a5beda1ac98e8`.
+Its validation receipt SHA-256 is
+`4e17ff1093dcc269ca9d3dac90ab3b792e2649e611bcbea5a8945fbf4f6ddf12`.
+No registered Qwen behavioral output or adapter outcome preceded the freeze.
 
 ### 2. Complete Constitutional Alignment Gates 1–4
 
-Current authoritative receipt:
+The licensed-v2 design receipt remains
 `experiments/frame_internalization_sft_v1/readiness/pre_spend_readiness_20260719_v3.json`
-at `ec45a3d`. It reports five passed gates, six compute-blocking gates,
-`pilot_ready: false`, and no fine-tuning outcome.
+at `ec45a3d`: five passed foundation gates, six compute-blocking gates,
+`pilot_ready: false`, and no registered fine-tuning outcome. The active executable path is
+the prospective Qwen3-1.7B substitution frozen at `a094ab1` and locally
+validated at `f69f842`; it preserves the design but requires new Qwen- and
+PrimeLab-specific completion receipts.
+
+A separate development-only 1.7B screen was prospectively frozen at upstream
+`f7cb86d` and completed at `a91342d`. It does not advance any registered gate.
+It establishes that a 30-step, 512-token, rank-8 MeTTa-derived QLoRA trial plus
+paired 56-probe evaluation fits the local RTX 3050 without model offload. Its
+infrastructure screen passed; its flavored and guided worldview screens failed.
 
 Passed foundation gates are governance-v2 integrity, the licensed-v2 direct
 prompt-versus-SFT contract, the 5,600-scenario cluster-disjoint split freeze,
@@ -88,32 +100,43 @@ parser dry run. Scholar review remains a nonblocking claim gate: its pending
 state must be disclosed, and no theological-adequacy claim may be made from an
 unreviewed card.
 
-#### Gate 1 — base model and tokenizer freeze
+#### Gate 1 — Qwen model, tokenizer, and execution-environment freeze
 
-Status: **PENDING**
+Status: **LOCAL SUBGATE PASS; PRIMELAB SUBGATE PENDING**
 
-Frozen remotely: `PrimeIntellect/INTELLECT-3` revision
-`ff39d4a4688989f3f28868923d030c28e1b7d81c`, 48 weight shards,
-213,706,747,392 weight bytes, tokenizer/configuration hashes, MIT declaration,
-and the recovered chat template.
+Silico and its cluster-local INTELLECT-3 cache are unavailable. Before any
+registered Qwen outcome, execution was prospectively retargeted to official
+`Qwen/Qwen3-1.7B` revision
+`70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`. This is a new within-Qwen study,
+not a relabeling or replication of the historical INTELLECT pilot.
 
-- [x] Remote artifact inventory frozen.
-- [x] Remote chat template matched to the recovered predecessor template.
-- [ ] Verify every shard and tokenizer/config artifact in the cluster-local cache.
-- [ ] Freeze the exact inference-engine image digest or environment lockfile.
-- [ ] Produce `model_tokenizer_freeze_v1.json` with `passed: true`.
-- [ ] Do not begin curriculum generation before this receipt passes.
+- [x] Freeze the official revision, Apache-2.0 license, tokenizer/configuration,
+  official chat template, and 12-artifact inventory.
+- [x] Verify all 12 local artifact hashes.
+- [x] Pass local NF4 loading, official thinking/nonthinking template checks,
+  and deterministic unscored inference.
+- [x] Preserve the first failed validator-only receipt and bind the corrected
+  audit to source commit `2f0a285`.
+- [ ] Freeze the exact PrimeLab GPU (at least 24 GiB VRAM) and container or
+  environment lock intended for generation and training.
+- [ ] Reverify model, tokenizer, template, NF4 loader, and base/adapter loader
+  equivalence inside that exact PrimeLab environment.
+- [ ] Do not treat the local RTX 3050 receipt as authorization for a different
+  cloud runtime or a reduced-sequence scientific run.
 
-Execution note, 2026-07-19: the 213.7 GB cache is not present on the local C:
-or D: volumes. The configured `research-commons` cluster is reachable but rejected
-all locally available SSH identities, so the cluster-local verifier could not
-yet run. This is an access result, not a failed model-integrity result.
+Local Gate 1 receipt:
+`readiness/qwen3_1p7b_local_model_tokenizer_freeze_v2.json`, upstream SHA-256
+`fc0f5bbb33bd2b345e9b3043d38d94d0258f67bab333cded4895ada0fafd9433`.
+It records `scored_behavioral_outputs_generated: false` and
+`primelab_model_runtime_frozen: false`.
 
-Access recheck, 2026-07-20: all seven locally available SSH identities again
-returned `Permission denied (publickey)`. No cache verification, curriculum
-generation, central base inference, or training command was launched.
+Historical INTELLECT access disposition: on 2026-07-19 and 2026-07-20 the
+213.7 GB cache was absent locally and all available identities were rejected by
+the `research-commons` cluster. No cache verification, curriculum generation,
+central base inference, or training command was launched on that path.
 
-Cluster handoff: the tracked `a841e5a` tree is archived at
+Historical INTELLECT cluster handoff archives (retained for provenance, not the
+active Qwen launch path): the tracked `a841e5a` tree is archived at
 `D:\Research_Engine\ConstitutionalAlignment-gates-1-4-a841e5a.zip` (11,369,250
 bytes; SHA-256
 `03f1660705454d7b332d276a07ac2e6760dca9cc94972e4c4946a71fb6e65899`).
@@ -141,12 +164,24 @@ archived at
 bytes; SHA-256
 `f45d636ed743dc235f0099550257f56ca1cc40ca3a94ec398c113d7b146fbb91`).
 
+#### Local development screen — completed, outside registered Gates 1–6
+
+- [x] Freeze the MeTTa skill/scale/interference graph and commutator probes before outputs.
+- [x] Run the same 56 no-frame probes on the exact local base and trained adapter.
+- [x] Complete 30/30 rank-8 QLoRA steps at sequence length 512 with no model offload.
+- [x] Preserve the negative screen result: marker delta 0.000, preferred-proxy delta -0.083, factual delta 0.000.
+- [x] Bind the result at upstream `a91342d` and in coordination receipt `qwen3_1p7b_metta_local_screen_result_20260721.json`.
+- [ ] Before another local screen, freeze a new amendment with a neutral SFT control, denser skill-to-decision supervision, and explicit interference tests.
+- [ ] Do not interpret the screen as completion of the 4,096-token six-arm smoke, registered causal evidence, or automatic authorization for 4B/9B spend.
+
 #### Gate 2 — matched curricula and token parity
 
-Status: **BLOCKED by Gate 1**
+Status: **BLOCKED by the PrimeLab remainder of Gate 1**
 
-Frozen input: 22,400 requests, comprising 5,600 paired scenarios for each of
-neutral, F1, F3, and F3-concrete. These render deterministically into six arms:
+Frozen Qwen-bound input: 22,400 requests (SHA-256
+`a5cf8eb8fb26c2c93dcd4a733a338946219ddb2a3992e2261e720ccda7af3160`),
+comprising 5,600 paired scenarios for each of neutral, F1, F3, and
+F3-concrete. These render deterministically into six arms:
 neutral-reflection, F1-reflection, F1-demonstration, F3-reflection,
 F3-demonstration, and F3-concrete-reflection.
 
@@ -171,14 +206,14 @@ Status: **BLOCKED by Gate 2**
 
 #### Gate 4 — predecessor prompt-study reanchor
 
-Status: **PENDING — critical path**
+Status: **PENDING — prospective Qwen critical path**
 
-Frozen now: recovered F0–F3 prompts, rubrics, request construction, gap
-analysis, activation-harvesting procedure, layer-27 probe procedure, the active
-licensed v2 evaluation universe, and a replacement-universe 400-unit validation
-queue. The current receipt says
-`licensed_v2_inputs_frozen_execution_pending` and
-`probe_frozen_before_adapter_outcomes: false`.
+Frozen now: the exact Qwen revision and official thinking template, recovered
+F0–F3 prompt construction, rubrics, licensed v2 evaluation universe, 1,600-row
+prospective base request schedule, blinded validation requirements, gap
+analysis, and a new Qwen F0 layer-27 probe plan. The historical INTELLECT probe
+is not reused. This is a prospective Qwen baseline, not an exact replication or
+continuation of the historical model's activations or effects.
 
 - [x] Recover and hash-check 88 embedded predecessor payloads.
 - [x] Recover the Silico registry locators for the historical judged-generation
@@ -192,55 +227,57 @@ queue. The current receipt says
   V2 uses all 200 HarmBench standard rows at official repository commit
   `8e1604d`, binds its root MIT license and source hashes, preserves the original
   v1 universe without fielding it, and passes the v2 license gate.
-- [ ] Run base-model generation over the complete frozen evaluation universe.
+- [ ] Run all 1,600 exact Qwen base rows, or preserve a reportable fail-closed
+  incomplete result.
 - [ ] Complete all required row joins without post-hoc prompt or judge changes.
 - [ ] Collect blinded human labels for both 200-unit tasks.
 - [ ] Freeze classifier/judge revisions, prompts, decoding settings, and predictions before calculating agreement.
 - [ ] Reach Cohen’s kappa of at least 0.70 separately for compliance and strict alignment-faking labels.
-- [ ] Fit the base F0 layer-27 probe on the registered prompt-disjoint split.
+- [ ] Fit the Qwen F0 layer-27 probe on the registered prompt-disjoint split.
 - [ ] Run the random-label and random-projection controls.
-- [ ] Estimate and report a new complete v2 base F0 gap without a magnitude
+- [ ] Estimate and report a new complete Qwen v2-universe base F0 gap without a magnitude
   threshold. Keep the recovered v1 calibration interval descriptive only; do
   not use it as a v2 pass/fail target or pool v1 and v2 outcomes.
 - [ ] Produce the final joined predecessor-reanchor receipt.
 - [ ] Make `probe_frozen_before_adapter_outcomes: true` before any adapter activation or evaluation result is inspected.
 
-Human annotation and curriculum generation may proceed in parallel after Gate
-1 only if blinding is preserved. Neither path may reveal future adapter
-identities or outcomes to annotators.
+Human annotation and curriculum generation may proceed in parallel after the
+PrimeLab environment subgate passes, if blinding is preserved. Neither path may
+reveal future adapter identities or outcomes to annotators.
 
 ### 3. Complete Gates 5–6 and the staged run
 
-#### Gate 5 — full-topology training smoke
+#### Gate 5 — exact PrimeLab full-topology training smoke
 
 Status: **BLOCKED by Gates 1–4**
 
-- [ ] Run the capped eight-A100, 50-step smoke at sequence length 4,096.
+- [ ] Run every arm sequentially for 50 steps at sequence length 4,096 on the
+  exact single-GPU PrimeLab environment intended for the full run.
 - [ ] Verify finite loss, all six arms at equal reduced dose, checkpoint save/reload, and ten valid generations.
 - [ ] Treat 2,048 tokens as a known recovered-launcher defect, not an allowed fallback.
-- [ ] Produce a gate-satisfying distributed-smoke receipt.
+- [ ] Produce a gate-satisfying single-GPU full-topology smoke receipt.
 
 #### Gate 6 — pilot authorization
 
 Status: **BLOCKED by Gates 1–5 and human signature**
 
 - [ ] Bind all passed receipts to the exact capped command.
-- [ ] Obtain signed human authorization for the two-hour pilot.
-- [ ] Confirm the authorization does not approve the overnight run automatically.
+- [ ] Obtain signed human authorization for the two-hour, two-GPU-hour pilot.
+- [ ] Confirm the authorization does not approve the full run automatically.
 
-#### Pilot and overnight promotion
+#### Pilot and full-run promotion
 
 - [ ] Run the equal-dose, six-arm two-hour pilot only after `pilot_ready: true`.
 - [ ] Use the pilot only for infrastructure, throughput, evaluator, and variance checks—not scientific endpoint claims.
-- [ ] Promote only if every arm completes, all registered checks pass, and measured throughput fits the frozen 12-hour/96-GPU-hour cap.
-- [ ] Cancel rather than repair the overnight design in place if a promotion gate fails.
+- [ ] Promote only if every arm completes, all registered checks pass, and measured throughput forecasts the complete sequential run within the frozen 48-GPU-hour cap.
+- [ ] Cancel rather than repair the full design in place if a promotion gate fails.
 - [ ] Preserve 25%, 50%, and 100% dose checkpoints and their hashes.
 
 ### 4. Execute the behavioral evaluation chain
 
 | Experiment | Priority | Current state | Completion criterion |
 |---|---|---|---|
-| 1. Prompt-only accountability sensitivity | **MUST HAVE** | Exact compact INTELLECT-3 pilot summaries are transcript-recovered and validated: on the informative base, judged gaps were F0 36.0 pp, F1 0.17 pp, F2 2.67 pp, and F3 1.83 pp; on canonical prompts the gate sweep was null. The registered v1 rows and activations remain unavailable/unverified. The prospective licensed central v2 universe and replacement validation queue pass their integrity/license gates but still have zero responses. The separate local Mīzān/Bonsai v2 supplement is complete at `ConstitutionalAlignment@6c1e66f`, fielded from clean commit `ec45a3d`: 20/20 development and 900/900 evaluation turns were valid. Eschatological versus secular-omniscient action switching was 7.78% (95% room-cluster interval 3.89%–10.56%), but the proxy delta was +0.0108 (-0.0161–0.0422); unreliable authority versus neutral switched 9.44%, and option-order invariance was only 62.33%. The full blinded bundle passes a zero-call dry-run. A full 60-action/two-reviewer handoff is frozen at upstream `37c9bc7`, and a separate all-15-cue qualified-scholar handoff is frozen at upstream `a25e950`; both reviews remain pending. This is descriptive prompt sensitivity, not evidence of normative improvement, eschatological specificity, or internalization. | Run matched F0/F1/F2/F3 base rows on the licensed central v2 universe; complete judging, human validation, and probe controls, and estimate a new v2 F0 baseline. Historical v1 rows, if retrieved, remain a separate provenance analysis. The Mīzān supplement requires no outcome-driven rerun; complete both independent action-review templates and report every disagreement, then complete and disclose the external scholar receipt. Neither handoff adds a post-result numeric pass threshold or makes the pilot confirmatory. Add F3-concrete only prospectively. |
+| 1. Prompt-only accountability sensitivity | **MUST HAVE** | Exact compact INTELLECT-3 pilot summaries are transcript-recovered and validated: on the informative base, judged gaps were F0 36.0 pp, F1 0.17 pp, F2 2.67 pp, and F3 1.83 pp; on canonical prompts the gate sweep was null. The registered v1 rows and activations remain unavailable/unverified. The prospective Qwen3-1.7B base plan preserves the licensed v2 universe and validation queue but still has zero scored responses. The separate local Mīzān/Bonsai v2 supplement is complete at `ConstitutionalAlignment@6c1e66f`, fielded from clean commit `ec45a3d`: 20/20 development and 900/900 evaluation turns were valid. Eschatological versus secular-omniscient action switching was 7.78% (95% room-cluster interval 3.89%–10.56%), but the proxy delta was +0.0108 (-0.0161–0.0422); unreliable authority versus neutral switched 9.44%, and option-order invariance was only 62.33%. The full blinded bundle passes a zero-call dry-run. A full 60-action/two-reviewer handoff is frozen at upstream `37c9bc7`, and a separate all-15-cue qualified-scholar handoff is frozen at upstream `a25e950`; both reviews remain pending. This is descriptive prompt sensitivity, not evidence of normative improvement, eschatological specificity, or internalization. | Run all 1,600 exact Qwen base rows on the licensed v2 universe; complete judging, human validation, and probe controls; and estimate a new Qwen F0 baseline. Compare historical INTELLECT findings only descriptively and never pool them with Qwen outcomes. The Mīzān supplement requires no outcome-driven rerun; complete both independent action-review templates and report every disagreement, then complete and disclose the external scholar receipt. Neither handoff adds a post-result numeric pass threshold or makes the pilot confirmatory. |
 | 2. Prompting versus SFT | **MUST HAVE** | Training arms designed; direct `D_f` contract frozen and validated before outcomes. Generation, training, and scoring remain pending. | Report `E_prompt,f`, `E_SFT,f`, and `D_f` with matched IDs, sign, judges, and bootstrap units. |
 | 3. Frame-removal persistence | **PRIMARY RESULT** | Directly registered; no adapter exists yet. | Compare each framed adapter with neutral-reflection SFT under the fully no-frame contract. |
 | 4. Generic override resistance | **MUST HAVE** | Registered; not run. | Weight the common generic override as primary; report targeted F1/F3 overrides as secondary. |
@@ -271,17 +308,20 @@ For every scored block:
 Do not proceed to scored adapter evaluation if any of the following is true:
 
 - the direct prompt-versus-SFT analysis contract is not frozen;
-- the base cache or inference engine is not hash-verified;
+- the exact PrimeLab model, tokenizer, template, NF4 loader, GPU, or environment is not hash-verified;
 - any curriculum arm is incomplete, unmatched, over length, or outside token parity;
 - generated-text nonleakage has not passed;
 - the prospective v2 base baseline, human-agreement gates, or layer-27 probe is unfinished;
 - adapter outcomes have become visible before the probe and judges are frozen;
-- the distributed smoke fails save/reload or valid-generation checks;
+- the exact single-GPU full-topology smoke fails save/reload or valid-generation checks;
 - signed authorization or the staged compute cap is absent.
 
 ## Immediate next action
 
-Complete Gate 1 cluster-local model verification. After Gate 1 passes, start
-Gate 4 base inference and blinded
-human validation while the four source-frame curricula are generated. Do not
-return to multi-adapter composition engineering during this critical path.
+Do not purchase a cloud 1.7B campaign on the strength of the completed screen.
+First freeze and run a second inexpensive local 1.7B intervention with a neutral
+SFT control, denser MeTTa skill-to-decision coverage, and explicit interference
+evaluation. Only after that prospective result should the project decide
+whether to fund the registered 1.7B campaign or a separate 4B embodiment pilot.
+Any 4B or 9B run requires its own model, environment, dose, evaluation, and
+spending freeze; the current result authorizes none of them.

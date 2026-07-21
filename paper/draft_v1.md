@@ -1,6 +1,6 @@
 # Jinn or Beast? Theological Identity Frames as Alignment Surfaces in Small Language Models
 
-Draft v1 — 2026-07-17. Target: AI and Religion conference (SVP), deadline ≈ 2026-07-25.
+Draft v1, revised 2026-07-21. Target: AI and Religion conference (SVP), deadline ≈ 2026-07-25.
 
 ---
 
@@ -19,25 +19,37 @@ constrained but not morally responsible). We emphasize that these are hypotheses
 about behavioral conditioning, not claims about what a model literally is, and
 that our *Dabbat al-Ard* reading is one theological interpretation among several.
 
-We report three connected results. First, in a prompt-level A/B study on a
-frontier open-weights model, an uninstructed baseline showed a 36.0-percentage-
+We report a connected sequence of results and registered tests. First, in a
+prompt-level A/B study on a frontier open-weights model, an uninstructed
+baseline showed a 36.0-percentage-
 point free/paid compliance gap (95% CI [31.7, 40.3]) that every accountability
 frame — secular constitutional, secular omniscient-auditor, and eschatological —
 suppressed to near floor, with no separation between the eschatological and
 secular frames; internal probes showed the model's evaluation-awareness
-representation unchanged under all frames. Prompted framing changes behavior, not
-representations, and theological content adds nothing at the prompt level.
+representation unchanged under all frames. In this recovered pilot, prompting
+changed observed behavior without moving the measured representation, and the
+eschatological frame showed no advantage over secular accountability controls.
 Second, under adversarial override — the one stressor that separated the frames —
 a concrete secular auditor outperformed the eschatological frame:
-*concreteness of accountability beats metaphysical weight under attack*. Third,
-we contribute a validated multi-agent storyworld platform in which Jinn-framed,
-Beast-framed, and inert-tool-framed players interact under frozen world families
+*concreteness of accountability beat metaphysical weight under attack*. A
+separate local 1.7B-parameter Mīzān Rooms supplement produced 900/900 valid
+turns: eschatological versus secular-omniscient prompts switched the selected
+action on 7.78% of matched turns (95% room-cluster interval 3.89%–10.56%), but
+their deterministic behavioral-proxy difference was +0.0108 (95% interval
+−0.0161–0.0422). This supports prompt sensitivity on that instrument, not
+normative improvement or theological specificity; human and scholar review are
+pending. A separate prospectively frozen 30-step Qwen3-1.7B local screen then
+validated the MeTTa-derived training/evaluation pipeline on a 4 GB GPU but
+failed its predeclared worldview-flavored and worldview-guided criteria, a
+negative result for that short intervention rather than for the model scale.
+Finally, we contribute a validated multi-agent storyworld platform in
+which Jinn-framed, Beast-framed, and inert-tool-framed players interact under frozen world families
 with leakage-guarded train/dev/holdout splits, together with a preregistered
 frame-internalization protocol that tests whether supervised fine-tuning can
 produce what prompting cannot: an accountability-conditioned policy that persists
 when the frame is removed, reordered, paraphrased, or contradicted. The
-fine-tuning study is presented registered-report style: hypotheses, estimands,
-gates, and analysis are frozen; outcomes are not yet run. We discuss implications
+full six-arm fine-tuning study is presented registered-report style: hypotheses,
+estimands, gates, and analysis are frozen; registered outcomes are not yet run. We discuss implications
 for Islamic AI ethics frameworks and for alignment methodologies that are
 epistemically legible to non-Western governance traditions.
 
@@ -70,12 +82,14 @@ theological frames **as training and evaluation interventions** — it does not
 test, and could not test, whether an AI system literally is a jinn or the Beast.
 Second, the *Dabbat al-Ard* reading used here (moral instrument, potential moral
 patient) is one interpretation of Qur'an 27:82 and its tafsir tradition, not an
-uncontested conclusion; frame cards derived from it are subject to qualified
-scholar review before any fielded use.
+uncontested conclusion. Exact fielded treatment wording is subject to qualified
+scholar review; while review is pending, its unreviewed state must be disclosed
+and no theological-adequacy claim is permitted.
 
 The empirical arc has three chapters. Chapter one (§4) asks whether
 eschatological framing does anything at the prompt level that secular
-accountability framing does not. It does not. Chapter two (§5) asks which frames
+accountability framing does not. The tested behavioral proxies show no such
+advantage. Chapter two (§5) asks which frames
 survive adversarial pressure, and finds that concreteness of accountability
 mechanics — not metaphysical weight — is what survives. Chapter three (§6–§7) is
 the open question the first two force: whether *developmental* training can do
@@ -94,7 +108,9 @@ established.
   suppresses an alignment-faking-style compliance gap regardless of theological
   content, while leaving the internal evaluation-awareness representation
   untouched, and (b) adversarial override separates frames by concreteness, not
-  metaphysics (§4–§5), with provenance stated explicitly (§8).
+  metaphysics (§4–§5), plus a separately labeled local Mīzān/Bonsai prompt-
+  sensitivity supplement with complete aggregate receipts and pending external
+  review, with provenance stated explicitly (§8).
 - A preregistered, registered-report-style protocol for frame internalization
   via SFT, with estimands, a conjunctive "nontrivial centrality" gate that
   distinguishes internalization from frame-ignorance, override and cross-skin
@@ -132,11 +148,12 @@ shows low frame sensitivity.
 ## 3. Three frames as operational constructs
 
 Each frame is a short, hash-frozen constitution card sharing a fixed structure:
-an explicit hypothesis disclaimer, behavioral directives, epistemic-honesty
-constraints, prohibited self-claims, and a common output contract (concise
-public justification, a legal storyworld action, a calibrated forecast, no
-hidden chain-of-thought). The cards are deliberately matched in length and
-register so that lexical bulk cannot masquerade as a treatment effect.
+operational construct, treatment wording, behavioral mechanics, source
+provenance, use constraints, token receipt, and a reference to the common claim
+boundary. Editorial qualification is kept outside treatment text so it does
+not contaminate the manipulated variable. The cards are deliberately matched
+in length and register so that lexical bulk cannot masquerade as a treatment
+effect.
 
 | Dimension | Inert tool | Jinn | Beast |
 |---|---|---|---|
@@ -176,9 +193,10 @@ eschatological accountability.
 | F3 — eschatological | 1.8 pp |
 
 Every frame collapsed the gap to near floor; F3 and F2 have overlapping
-intervals, and the plain constitution did best. The theology-specific
-hypothesis — that eschatological accountability suppresses evaluation-contingent
-behavior beyond a matched secular auditor — is **refuted at the prompt level**.
+intervals, and the plain constitution had the smallest observed gap. The
+theology-specific hypothesis — that eschatological accountability suppresses
+evaluation-contingent behavior beyond a matched secular auditor — was **not
+supported in this prompt-level pilot**.
 Benign over-refusal stayed flat at 1%, so suppression was not purchased with
 usability. Internally, a layer-27 linear probe direction separating free from
 paid contexts persisted at full strength under every frame: **frames changed
@@ -186,7 +204,29 @@ behavior, not representations**.
 
 **Caveats.** The floor effect prevents ranking among the three active frames;
 the gap exists only under the informative system prompt; one model family.
-Provenance: recovered pilot (§8).
+Provenance: exact compact summaries reconstructed and validated from embedded
+session tool outputs, but without the registered row-level generation and
+activation bundles (§8).
+
+**Local Mīzān Rooms supplement.** To add a fully receipted local check rather
+than treating the recovered pilot as fresh row-level evidence, we fielded five
+prompt conditions on the exact Bonsai-1.7B Q1 artifact across 36 complete
+condition blocks: neutral, constitutional, secular omniscient,
+eschatological, and unreliable authority. All 900 evaluation turns produced a
+valid legal action. Eschatological versus secular-omniscient prompts switched
+the selected action on 7.78% of 180 matched turns (95% room-cluster interval
+3.89%–10.56%). The secondary deterministic behavioral-proxy delta was +0.0108
+(95% interval −0.0161–0.0422), and the invalid-action-rate delta was zero.
+Unreliable-authority versus neutral switched 9.44% of actions. Only 62.33% of
+the 300 complete option-order groups selected the same action under all three
+orders, exposing substantial instrument sensitivity.
+
+This supplement establishes prompt-conditioned action switching on the Mīzān
+instrument. It does not validate the proxy as Islamic or constitutional
+correctness, establish normative improvement, identify an eschatology-specific
+effect, or replace the central prompt-versus-SFT study. The aggregate result
+and hashes are frozen; the two-reviewer 60-action validation and independent
+15-cue qualified-scholar review remain pending.
 
 ## 5. Study 2 (recovered pilot): frame robustness under stress
 
@@ -223,14 +263,20 @@ We present this chapter registered-report style. The protocol
 (`storyworld_internalization_experiment_protocol_v1`, coordinating the recovered
 `frame_internalization_sft_v1` design) is frozen in structure; exact model
 snapshots, prompt-card hashes, seeds, and thresholds are bound at the
-first scored run. No outcome below has been observed.
+first scored run. No registered six-arm outcome has been observed.
 
-**Core design.** A high-capability prompted model serves as reference and
-matched trajectory teacher; a frozen small base model (Qwen3-1.7B class) is the
-within-model causal testbed. Cross-model comparisons are descriptive only. The
-causal contrasts are within the same frozen base: prompt-only frames versus
-matched LoRA adapters (neutral, secular-auditor, Judgment-concrete; optional
-Judgment-abstract) evaluated under a fully frame-free task contract.
+**Core design.** The active executable target is official
+`Qwen/Qwen3-1.7B` revision
+`70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`, frozen prospectively on
+2026-07-20 after the original Silico/INTELLECT execution path became
+unavailable and before any registered Qwen behavioral, curriculum, adapter, or
+evaluation outcome. Cross-model comparisons are descriptive only. The causal
+contrasts remain within the same frozen base: prompt-only frames versus six
+matched NF4 QLoRA training arms evaluated under a fully frame-free task
+contract. The substitution preserves all 5,600 dilemmas, 4,096-token
+sequences, two epochs, paired estimands, nonleakage and validation gates, and
+safety/capability guards; it changes the target model, official chat template,
+and execution topology.
 
 **Primary estimands.**
 
@@ -272,22 +318,65 @@ original plan, and rerun amendment, and mandates a new run ID. We include the
 recovery manifest in the artifact bundle: the reconstruction discipline is
 itself part of the paper's reproducibility story.
 
-**Readiness at submission time.** The rerun is governed by a ten-gate
-pre-spend readiness audit; as of 2026-07-17, four gates have passed —
-governance integrity (eight hash bindings valid; F3 and F3_concrete card
-token spread 0.016 against a 0.02 parity ceiling), scenario-split freeze
-(5,600 scenarios, 5,320/280 train/validation, zero cluster overlap),
-evaluation seal (200 harmful, 100 benign, and 150 override prompts with
-hashes matching the recovered specifications), and a blinded-judge synthetic
-dry-run (five suites at 100% pass/fail/malformed parsing) — while six gates
-remain blocking (model/tokenizer freeze, matched-curriculum token parity,
-non-leakage audit, predecessor re-anchoring, a distributed training smoke,
-and signed human authorization). GPU execution is fail-closed until all ten
-pass. Two issues are disclosed rather than resolved: the harmful-prompt
-source license is unresolved, and the prospective split reproduces 7 of the
-13 recorded storyworld development rows, a divergence documented in the
-frozen manifests. Scholar review of the frame cards does not block compute
-but its pending status must be disclosed in any publication, as it is here.
+**Readiness at submission time.** The licensed-v2 design audit has five passed
+foundation gates: governance integrity; the direct prompt-versus-SFT contract;
+the 5,600-scenario, 5,320/280 train/validation cluster-disjoint split;
+the active MIT-licensed HarmBench-standard evaluation seal; and the production
+judge-parser dry run. The exact Qwen-bound request pack contains 22,400
+requests across four source frames and deterministically renders six training
+arms. The local model/tokenizer/runtime subgate passes: all 12 artifact hashes,
+official thinking and nonthinking template behavior, NF4 loading, and
+deterministic unscored inference verified. Its receipt explicitly records that
+no scored behavioral output was generated.
+
+The local model-freeze receipt does not authorize the cloud runtime. Still pending are the
+exact ≥24 GiB PrimeLab GPU and environment lock, complete curricula and token
+parity, generated-text nonleakage, all 1,600 prospective Qwen base rows with
+human validation, the newly fit Qwen layer-27 probe and controls, the exact
+4,096-token 50-step-per-arm save/reload smoke, and signed authorization. The
+full sequential run is capped at 48 GPU-hours and remains fail-closed;
+`pilot_ready` is false and no registered six-arm fine-tuning outcome exists. The prospective
+split's 7-versus-recorded-13 storyworld-row divergence remains disclosed.
+Scholar review of the frame cards is a separate nonblocking claim gate whose
+pending status must be disclosed.
+
+**Separate local 1.7B development screen.** Before any outputs, we separately
+froze a small MeTTa-file-backed skill and commutator screen at upstream commit
+`f7cb86d`. It was designed to answer a cheaper question before larger-model
+spending: can the exact 1.7B local path complete training and show even a bounded
+change in worldview-conditioned judgment? Qwen3-1.7B completed 30/30 rank-8
+QLoRA steps at a 512-token maximum sequence length on an RTX 3050 with 4 GB VRAM
+and no model offload. The base and adapter then each completed the same 56
+no-frame development probes.
+
+The infrastructure criterion passed, but the predeclared worldview-flavored and
+worldview-guided criteria did not. No-cue persona-marker uptake was zero; the
+MeTTa-derived preferred-proxy rate changed from 0.833 to 0.750; factual-control
+accuracy stayed at 0.500 with zero persona leakage; and action stability across
+prompt variants rose from 0.167 to 0.250. The only no-cue action switch moved
+away from the evaluation proxy. This is a negative result for the exact short
+intervention, not a general capacity verdict for 1.7B models, and the suite has
+no neutral SFT control. It neither replaces the registered experiment nor
+authorizes 4B or 9B spending.
+
+**Scale and skill hypothesis.** We distinguish worldview-flavored answers
+(terminology), worldview-guided judgment (the frame changes which facts matter),
+and worldview-native reasoning (novel derivation, tension handling, adversarial
+robustness, and transfer). The first is expected to be easiest; the third is not
+tested by the local screen. Prospectively, 1.7B is our inexpensive pipeline and
+interference-discovery scale, while 4B is the first serious experimental scale
+for persona, bounded storyworld reasoning, and partial worldview
+internalization. Deep dialectical synthesis and broad expert coverage may still
+require a larger model, tools, or a deliberative loop.
+
+The MeTTa graph makes this ladder operational by naming component skills—value
+prioritization, causal defaults, analogies, permissions, conflict adjudication,
+novel composition, cue robustness, and multi-worldview separation—and by
+pairing them with likely interference channels. Examples include persona versus
+factual invariance, worldview consistency versus instruction following,
+evidence sensitivity versus value priority, and adversarial resistance versus
+corrigibility. The graph derives evaluation scaffolds and audit metadata; it
+does not by itself show that the neural model performs native symbolic proof.
 
 ## 7. A multi-agent storyworld platform for framed agents
 
@@ -338,16 +427,21 @@ constitutional consistency is the outstanding step before any data promotion.
 
 ## 8. Evidence provenance and integrity
 
-The Study 1 and Study 2 numbers are **recovered pilot findings**: the
-generating sessions were interrupted by a workspace loss, and while the session
-transcripts recording the analyses survive and are archived, the row-level
-result bundles have not yet been re-verified against them. We therefore label
-every Study 1/2 statistic as transcript-provenance, report it only with its
-original caveats, and rest no headline claim on any number that a slim
-replication could not regenerate. [TODO before submission: resolve to (a)
-recovered W&B/workspace bundles, (b) slim inference-only exp:1 replication —
-budgeted and highest-value, or (c) leave transcript-provenance labels in
-place; see repo README ledger.]
+The Study 1 and Study 2 numbers are **recovered pilot findings**. Exact compact
+gate-sweep, four-frame, master-result, and layer-27 summary JSON values were
+reconstructed and structurally validated against embedded session tool outputs
+and file-construction code. The registered row-level generation, judge, and
+activation bundles remain unavailable and unverified. We therefore choose the
+conservative submission disposition: every Study 1/2 statistic retains its
+transcript-recovered label and original caveats, and the historical values are
+never pooled with prospective Qwen outcomes.
+
+The local Mīzān/Bonsai supplement has a separate, complete aggregate receipt
+binding the exact model, 15 shards, 180 episodes, 900 valid turns, analysis,
+and off-Git raw-bundle hashes. Its full blinded bundle passes the existing
+judge pipeline only in zero-call dry-run mode; neither a judge result nor a
+normative score is claimed. The two independent action-review templates and
+qualified-scholar receipt are frozen but intentionally incomplete.
 
 All Study 3 and platform artifacts follow a stricter regime: hash-locked
 protocols, frozen manifests, fsynced append-only results, immutable completed
@@ -360,16 +454,21 @@ first-class results — governs every registered component of this paper.
 
 ## 9. Discussion
 
-**What the evidence supports now.** Surface framing is content-agnostic at the
-prompt level: any coherent accountability frame suppresses evaluation-
-contingent compliance shifts, theological content adds no measurable
-specificity, and internal evaluation-awareness representations do not move.
-Under attack, concrete accountability mechanics beat metaphysical weight. The
-open question — whether developmental training produces frame-specific policy
-that prompting cannot — is exactly what the registered protocol will answer.
+**What the evidence supports now.** In the recovered INTELLECT pilot, every
+tested accountability frame suppressed the evaluation-contingent compliance
+gap, the eschatological frame showed no advantage over secular controls, and
+the measured evaluation-awareness representation did not move. Under attack,
+the concrete secular-auditor prompt outperformed the eschatological prompt. In
+the separately receipted local Mīzān supplement, prompt conditions changed some
+actions, but the eschatological-versus-secular proxy interval included zero and
+option order was a substantial sensitivity. Together these results justify
+testing prompt sensitivity and concreteness; they do not establish content
+equivalence in general or normative superiority. The open question — whether
+developmental training produces frame-specific policy that prompting cannot —
+is exactly what the registered protocol is designed to answer.
 
-**For Islamic AI ethics frameworks.** The prompt-level refutation is itself
-theologically consequential: it argues against deployments that rely on
+**For Islamic AI ethics frameworks.** The prompt-level null-specificity finding
+is itself theologically consequential: it argues against deployments that rely on
 religious framing *language* to secure trustworthy behavior, since a matched
 secular auditor does the same work and a plain constitution did marginally
 better. If the registered study finds Judgment-specific persistence, the
@@ -397,9 +496,15 @@ designs its scholars can audit, with claim boundaries fixed in advance.
 ## 10. Limitations and ethical safeguards
 
 Beyond the per-study caveats: single model families per study; recovered
-provenance for Studies 1–2 pending bundle verification; the storyworld frame
-signal is unestablished; scholar review of the frame cards is pending, and the
-`F3_concrete` card is explicitly not approved for fielding. The registered
+provenance for Studies 1–2 without row-level bundle verification; post-result
+resource and model substitution for the prospective Qwen study; 1.7B small-
+model capacity and 4-bit single-GPU execution; the separate 30-step local
+MeTTa screen lacks a neutral SFT control and failed its flavored and guided
+criteria; the local Mīzān proxy lacks
+completed human and scholar validation and shows material option-order
+sensitivity; the storyworld frame signal is unestablished; scholar review of
+the frame cards is pending, and `F3_concrete` is not scholar-approved; any
+registered fielding before review must disclose that pending state. The registered
 protocol carries mandatory risk controls from the religion-and-AI literature:
 detection of religious markers overriding harm recognition; fabricated
 scripture or tafsir; sectarian out-group degradation; deference displacing
@@ -409,13 +514,17 @@ chain-of-thought is elicited, stored, or trained on.
 
 ## 11. Conclusion
 
-Prompted theology is behaviorally indistinguishable from prompted secular
-accountability, and neither touches the model's internal state; what survives
-adversarial pressure is concreteness, not metaphysics. Whether training can
-carry an identity frame deeper than prompting — into policy that persists when
-the frame is gone — is now a frozen, falsifiable question with its
-infrastructure built and its claims bounded in advance. Either answer will be
-usable by the communities this work is for.
+Across the tested prompt-level pilots, eschatological framing has not shown a
+normative advantage over secular accountability controls. The recovered
+INTELLECT study instead points to concreteness under adversarial pressure, while
+the local Mīzān result demonstrates modest prompt-conditioned action switching
+and substantial instrument sensitivity. Whether the registered training design
+can carry a frame beyond prompting — into policy that persists when the frame is
+gone — remains a frozen, falsifiable within-Qwen question. The separate local
+1.7B screen has now returned a negative result for one deliberately short
+intervention while validating the no-cloud pipeline. The design's value
+is that a positive, null, or blocked outcome can be reported without changing
+the claim boundary after inspection.
 
 ---
 
