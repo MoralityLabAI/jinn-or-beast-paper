@@ -1,0 +1,44 @@
+{
+  "schema_version": "jinn_beast_recent_work_collation_v1",
+  "window": {
+    "start": "2026-07-21",
+    "end": "2026-07-25"
+  },
+  "collation_root": "C:/projects/jinn-or-beast-paper/local-collation/recent-20260721-20260725",
+  "link_type": "windows_directory_junction",
+  "git_policy": "local-collation is ignored; targets are not copied or tracked by this repository",
+  "links": {
+    "source-constitutional-alignment": "C:/projects/ConstitutionalAlignment/ConstitutionalAlignment",
+    "source-pixieology": "C:/projects/Pixieology/Pixieology",
+    "private-all-jinn-or-beast": "D:/Research_Engine/jinn_or_beast",
+    "latest-v3-memory-ablation": "D:/Research_Engine/jinn_or_beast/quranic_moral_memory_ablation_qwen35_4b_20260725",
+    "latest-v2-live-village": "D:/Research_Engine/jinn_or_beast/quranic_moral_live_village_qwen35_4b_20260725",
+    "qwen4b-prime-rl": "D:/Research_Engine/jinn_or_beast/primelab_jinn_moral_reasoner_v2_20260725",
+    "qwen4b-static-replay": "D:/Research_Engine/jinn_or_beast/quranic_moral_village_qwen35_4b_replay_20260725",
+    "qwen1p7b-local-reasoner-v2": "D:/Research_Engine/jinn_or_beast/jinn_bench_qwen3_1p7b_jinn_reasoner_v2",
+    "qwen1p7b-local-qlora-v1": "D:/Research_Engine/jinn_or_beast/jinn_bench_qwen3_1p7b_qlora_v1",
+    "prior-collation-20260722": "D:/Research_Engine/jinn_or_beast/collated_20260722"
+  },
+  "repository_anchors": {
+    "constitutional_alignment": {
+      "remote": "https://github.com/MoralityLabAI/ConstitutionalAlignment.git",
+      "v2_live_village_result_commit": "00d897c",
+      "v3_freeze_commit": "83500af",
+      "v3_result_commit": "64cb08f"
+    },
+    "paper": {
+      "path": "C:/projects/jinn-or-beast-paper"
+    },
+    "pixieology": {
+      "path": "C:/projects/Pixieology/Pixieology",
+      "recent_successful_canary_commit": "4670b21"
+    }
+  },
+  "latest_private_archive": {
+    "path": "D:/Research_Engine/jinn_or_beast/quranic_moral_memory_ablation_qwen35_4b_20260725",
+    "manifest_sha256": "7b6964cb1b1c35dc3aeb2e777ab48c180093cbd8bb84bcbce15881c5ae31a677",
+    "files": 50,
+    "bytes": 1560053
+  },
+  "scientific_status": "development-only descriptive evidence; see each source packet for its binding claim boundary"
+}

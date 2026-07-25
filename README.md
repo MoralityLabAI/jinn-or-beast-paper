@@ -21,6 +21,17 @@ Deadline anchor: ≈ 2026-07-25 (nine days from the 2026-07-16 consolidation).
 | `notes/` | Consolidated Silico suggestions and direction (2026-07-16). |
 | `evidence/` | Frozen receipts / result bundles copied in as they are verified. Nothing in here may be cited in the paper without a provenance note. |
 
+## Deadline-week collation
+
+The tracked [2026-07-21 through 2026-07-25 work index](evidence/recent_work_20260721_20260725/README.md)
+maps the local Qwen 1.7B work, Prime-hosted Qwen3.5-4B Jinn adapter,
+Quran-anchored villages, role-memory ablation, and adjacent Pixie work.
+
+On the experiment workstation, ignored Windows junctions provide a single local
+entry point without copying private artifacts:
+
+`C:\projects\jinn-or-beast-paper\local-collation\recent-20260721-20260725`
+
 ## Where the experiments live
 
 | Program | Location | Status (2026-07-20) |

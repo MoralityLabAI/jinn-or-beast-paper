@@ -3,3 +3,4 @@ evidence/**/raw/
 __pycache__/
 codex-chat-sessions/
 evidence/runtime-logs/raw/
+/local-collation/
