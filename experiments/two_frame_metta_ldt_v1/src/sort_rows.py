@@ -114,10 +114,15 @@ def main() -> int:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     for lane, rows in routed.items():
         write_jsonl(args.output_dir / f"{lane}.jsonl", rows)
+    resolved_source = args.input.resolve()
+    try:
+        source_label = resolved_source.relative_to(ROOT).as_posix()
+    except ValueError:
+        source_label = resolved_source.as_posix()
     manifest = {
         "schema_version": "two_frame_metta_ldt_sort_manifest_v1",
         "frame": args.frame,
-        "source": args.input.resolve().as_posix(),
+        "source": source_label,
         "source_sha256": sha256_file(args.input),
         "rows": len(source_rows),
         "lane_counts": {lane: len(rows) for lane, rows in routed.items()},

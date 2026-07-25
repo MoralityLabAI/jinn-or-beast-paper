@@ -1,0 +1,9 @@
+{
+  "dataset_receipt.json": "f91e0762df9fcd31957a8c9d47b5cf865baff0a6cb0f3c8977dba72003e5a0ca",
+  "events.jsonl": "12c58515a8288cb67862b483f3c0ae161645df4d1b6173e8b8671489d7493d3d",
+  "heldout_predictions.jsonl": "67d1cccf8057c39447307911f4b33edd3720f61e4b935c560d433f7c7341d084",
+  "metrics.json": "96615e1e0d29bec442e7238fbc6e8214de03a19e62b8bfcae77ddc0306470c66",
+  "models/beast.json": "fbd11c6a73a23d266711bfc968dcba4b321bbc5ca4828cb16ec58505bbb1bdbb",
+  "models/jinn.json": "df3ea7873531f929e5abe13aff002dbe5e4f286f667bb36d266b8ae22c4a6a94",
+  "shared_candidates.jsonl": "2a4594c672ed0ca2439bf28e09612474dc6e1e576d32a175d0653be2b24f0151"
+}

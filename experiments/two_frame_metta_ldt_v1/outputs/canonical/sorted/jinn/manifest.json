@@ -1,0 +1,14 @@
+{
+  "frame": "jinn",
+  "hard_route_requires_audited_tags": true,
+  "lane_counts": {
+    "hold": 768,
+    "reject": 768,
+    "train": 768
+  },
+  "learned_proposals_are_soft_only": true,
+  "rows": 2304,
+  "schema_version": "two_frame_metta_ldt_sort_manifest_v1",
+  "source": "outputs/canonical/shared_candidates.jsonl",
+  "source_sha256": "2a4594c672ed0ca2439bf28e09612474dc6e1e576d32a175d0653be2b24f0151"
+}

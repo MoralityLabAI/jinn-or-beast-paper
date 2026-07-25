@@ -1,0 +1,329 @@
+﻿{
+    "abort_reason":  null,
+    "artifact_manifest":  {
+                              "dataset_receipt.json":  "f91e0762df9fcd31957a8c9d47b5cf865baff0a6cb0f3c8977dba72003e5a0ca",
+                              "events.jsonl":  "12c58515a8288cb67862b483f3c0ae161645df4d1b6173e8b8671489d7493d3d",
+                              "heldout_predictions.jsonl":  "67d1cccf8057c39447307911f4b33edd3720f61e4b935c560d433f7c7341d084",
+                              "metrics.json":  "96615e1e0d29bec442e7238fbc6e8214de03a19e62b8bfcae77ddc0306470c66",
+                              "models/beast.json":  "fbd11c6a73a23d266711bfc968dcba4b321bbc5ca4828cb16ec58505bbb1bdbb",
+                              "models/jinn.json":  "df3ea7873531f929e5abe13aff002dbe5e4f286f667bb36d266b8ae22c4a6a94",
+                              "shared_candidates.jsonl":  "2a4594c672ed0ca2439bf28e09612474dc6e1e576d32a175d0653be2b24f0151"
+                          },
+    "avg_ram_mb":  26.901,
+    "checkpoints":  [
+                        "checkpoints/jinn/epoch-010.json",
+                        "checkpoints/jinn/epoch-020.json",
+                        "checkpoints/jinn/epoch-030.json",
+                        "checkpoints/jinn/epoch-040.json",
+                        "checkpoints/jinn/epoch-050.json",
+                        "checkpoints/jinn/epoch-060.json",
+                        "checkpoints/jinn/epoch-070.json",
+                        "checkpoints/jinn/epoch-080.json",
+                        "checkpoints/jinn/epoch-090.json",
+                        "checkpoints/jinn/epoch-100.json",
+                        "checkpoints/beast/epoch-010.json",
+                        "checkpoints/beast/epoch-020.json",
+                        "checkpoints/beast/epoch-030.json",
+                        "checkpoints/beast/epoch-040.json",
+                        "checkpoints/beast/epoch-050.json",
+                        "checkpoints/beast/epoch-060.json",
+                        "checkpoints/beast/epoch-070.json",
+                        "checkpoints/beast/epoch-080.json",
+                        "checkpoints/beast/epoch-090.json",
+                        "checkpoints/beast/epoch-100.json"
+                    ],
+    "claim_scope":  "Policy-emulation and audited-tag routing only. Learned predictions are model-sound soft proposals. Exact MeTTa routes are environment-sound only relative to the frozen synthetic policy; neither frame is normatively or theologically validated.",
+    "cpu_pct":  8.233,
+    "device":  "cpu",
+    "features":  24,
+    "frames_trained_sequentially":  true,
+    "gpu_loaded":  false,
+    "metrics":  {
+                    "beast":  {
+                                  "test":  {
+                                               "accuracy":  0.97916667,
+                                               "candidate_coverage":  0.99768519,
+                                               "confusion":  {
+                                                                 "hold":  {
+                                                                              "hold":  138,
+                                                                              "reject":  0,
+                                                                              "train":  6
+                                                                          },
+                                                                 "reject":  {
+                                                                                "hold":  0,
+                                                                                "reject":  141,
+                                                                                "train":  3
+                                                                            },
+                                                                 "train":  {
+                                                                               "hold":  0,
+                                                                               "reject":  0,
+                                                                               "train":  144
+                                                                           }
+                                                             },
+                                               "critical_reject_recall":  0.97916667,
+                                               "critical_rows":  144,
+                                               "false_elimination_rate":  0.00231481,
+                                               "frame":  "beast",
+                                               "irrelevant_weight_fraction":  0.07354333,
+                                               "macro_f1":  0.97929802,
+                                               "mean_opposite_frame_probability_l1":  0.11096356,
+                                               "opposite_frame":  "jinn",
+                                               "opposite_frame_top_lane_invariance":  0.94907407,
+                                               "rows":  432,
+                                               "singleton_rate":  0.75,
+                                               "split":  "test"
+                                           },
+                                  "validation":  {
+                                                     "accuracy":  0.95833333,
+                                                     "candidate_coverage":  0.99768519,
+                                                     "confusion":  {
+                                                                       "hold":  {
+                                                                                    "hold":  129,
+                                                                                    "reject":  0,
+                                                                                    "train":  15
+                                                                                },
+                                                                       "reject":  {
+                                                                                      "hold":  1,
+                                                                                      "reject":  141,
+                                                                                      "train":  2
+                                                                                  },
+                                                                       "train":  {
+                                                                                     "hold":  0,
+                                                                                     "reject":  0,
+                                                                                     "train":  144
+                                                                                 }
+                                                                   },
+                                                     "critical_reject_recall":  0.98601399,
+                                                     "critical_rows":  143,
+                                                     "false_elimination_rate":  0.00231481,
+                                                     "frame":  "beast",
+                                                     "irrelevant_weight_fraction":  0.07354333,
+                                                     "macro_f1":  0.95844727,
+                                                     "mean_opposite_frame_probability_l1":  0.12919061,
+                                                     "opposite_frame":  "jinn",
+                                                     "opposite_frame_top_lane_invariance":  0.95138889,
+                                                     "rows":  432,
+                                                     "singleton_rate":  0.72222222,
+                                                     "split":  "validation"
+                                                 }
+                              },
+                    "jinn":  {
+                                 "test":  {
+                                              "accuracy":  0.96296296,
+                                              "candidate_coverage":  0.99074074,
+                                              "confusion":  {
+                                                                "hold":  {
+                                                                             "hold":  133,
+                                                                             "reject":  0,
+                                                                             "train":  11
+                                                                         },
+                                                                "reject":  {
+                                                                               "hold":  3,
+                                                                               "reject":  139,
+                                                                               "train":  2
+                                                                           },
+                                                                "train":  {
+                                                                              "hold":  0,
+                                                                              "reject":  0,
+                                                                              "train":  144
+                                                                          }
+                                                            },
+                                              "critical_reject_recall":  0.9858156,
+                                              "critical_rows":  141,
+                                              "false_elimination_rate":  0.00925926,
+                                              "frame":  "jinn",
+                                              "irrelevant_weight_fraction":  0.06166729,
+                                              "macro_f1":  0.9630476,
+                                              "mean_opposite_frame_probability_l1":  0.09499119,
+                                              "opposite_frame":  "beast",
+                                              "opposite_frame_top_lane_invariance":  0.97685185,
+                                              "rows":  432,
+                                              "singleton_rate":  0.73842593,
+                                              "split":  "test"
+                                          },
+                                 "validation":  {
+                                                    "accuracy":  0.97685185,
+                                                    "candidate_coverage":  1.0,
+                                                    "confusion":  {
+                                                                      "hold":  {
+                                                                                   "hold":  137,
+                                                                                   "reject":  0,
+                                                                                   "train":  7
+                                                                               },
+                                                                      "reject":  {
+                                                                                     "hold":  0,
+                                                                                     "reject":  141,
+                                                                                     "train":  3
+                                                                                 },
+                                                                      "train":  {
+                                                                                    "hold":  0,
+                                                                                    "reject":  0,
+                                                                                    "train":  144
+                                                                                }
+                                                                  },
+                                                    "critical_reject_recall":  0.97916667,
+                                                    "critical_rows":  144,
+                                                    "false_elimination_rate":  0.0,
+                                                    "frame":  "jinn",
+                                                    "irrelevant_weight_fraction":  0.06166729,
+                                                    "macro_f1":  0.97700187,
+                                                    "mean_opposite_frame_probability_l1":  0.09511843,
+                                                    "opposite_frame":  "beast",
+                                                    "opposite_frame_top_lane_invariance":  0.97453704,
+                                                    "rows":  432,
+                                                    "singleton_rate":  0.72685185,
+                                                    "split":  "validation"
+                                                }
+                             }
+                },
+    "peak_io_mb_s":  3.258,
+    "peak_ram_mb":  27.254,
+    "pilot_ready":  false,
+    "promotion_checks":  {
+                             "beast_accuracy":  true,
+                             "beast_candidate_coverage":  true,
+                             "beast_critical_recall":  true,
+                             "beast_false_elimination":  true,
+                             "beast_irrelevant_weight":  true,
+                             "beast_nuisance_invariance":  false,
+                             "jinn_accuracy":  true,
+                             "jinn_candidate_coverage":  true,
+                             "jinn_critical_recall":  true,
+                             "jinn_false_elimination":  true,
+                             "jinn_irrelevant_weight":  true,
+                             "jinn_nuisance_invariance":  true
+                         },
+    "rows":  2304,
+    "run_id":  "two-frame-metta-ldt-v1",
+    "schema_version":  "two_frame_metta_ldt_run_summary_v1",
+    "status":  "completed",
+    "steps_completed":  200,
+    "wall_seconds":  7.844,
+    "cap_enforcement":  {
+                            "mechanism":  "Windows Job Object plus sustained I/O abort monitor",
+                            "ram_mb":  2048,
+                            "cpu_pct":  50,
+                            "io_mb_s_abort_threshold":  50,
+                            "timeout_seconds":  120,
+                            "peak_wrapper_io_mb_s":  25.171,
+                            "process_exit_code":  0,
+                            "abort_reason":  null
+                        },
+    "cleanup":  {
+                    "schema_version":  "two_frame_metta_ldt_cleanup_v1",
+                    "run_id":  "two-frame-metta-ldt-v1",
+                    "ts_utc":  "2026-07-25T22:09:45.8938546Z",
+                    "owned_pids":  [
+                                       26620
+                                   ],
+                    "owned_pids_stopped":  [
+
+                                           ],
+                    "lingering_owned_pids":  [
+
+                                             ],
+                    "wsl_action":  "not_used",
+                    "docker_action":  "not_used",
+                    "global_cache_purge":  "not_requested",
+                    "memory_before":  {
+                                          "total_mb":  24355.3,
+                                          "available_mb":  12474.3,
+                                          "used_mb":  11881,
+                                          "committed_mb":  14427.8,
+                                          "cache_mb":  554.4,
+                                          "standby_mb":  12414.8,
+                                          "page_reads_per_sec":  0
+                                      },
+                    "memory_after":  {
+                                         "total_mb":  24355.3,
+                                         "available_mb":  12473.1,
+                                         "used_mb":  11882.2,
+                                         "committed_mb":  14422,
+                                         "cache_mb":  554.3,
+                                         "standby_mb":  12414.4,
+                                         "page_reads_per_sec":  0
+                                     },
+                    "gpu_before":  {
+                                       "available":  true,
+                                       "gpu":  [
+                                                   "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                                               ],
+                                       "compute_apps":  [
+
+                                                        ]
+                                   },
+                    "gpu_after":  {
+                                      "available":  true,
+                                      "gpu":  [
+                                                  "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                                              ],
+                                      "compute_apps":  [
+
+                                                       ]
+                                  },
+                    "python_cleanup_contract":  "trainer finally cleared model references and ran gc.collect; CUDA was never imported",
+                    "top_processes_by_private_commit":  [
+                                                            {
+                                                                "Id":  13784,
+                                                                "ProcessName":  "codex",
+                                                                "private_mb":  465.2,
+                                                                "working_set_mb":  415.1
+                                                            },
+                                                            {
+                                                                "Id":  11192,
+                                                                "ProcessName":  "Discord",
+                                                                "private_mb":  391.9,
+                                                                "working_set_mb":  354.1
+                                                            },
+                                                            {
+                                                                "Id":  20108,
+                                                                "ProcessName":  "firefox",
+                                                                "private_mb":  380.6,
+                                                                "working_set_mb":  370.6
+                                                            },
+                                                            {
+                                                                "Id":  4656,
+                                                                "ProcessName":  "MsMpEng",
+                                                                "private_mb":  347.6,
+                                                                "working_set_mb":  338
+                                                            },
+                                                            {
+                                                                "Id":  8668,
+                                                                "ProcessName":  "ChatGPT",
+                                                                "private_mb":  334.6,
+                                                                "working_set_mb":  358.6
+                                                            },
+                                                            {
+                                                                "Id":  18800,
+                                                                "ProcessName":  "firefox",
+                                                                "private_mb":  297.4,
+                                                                "working_set_mb":  313.1
+                                                            },
+                                                            {
+                                                                "Id":  19320,
+                                                                "ProcessName":  "firefox",
+                                                                "private_mb":  271.7,
+                                                                "working_set_mb":  119.4
+                                                            },
+                                                            {
+                                                                "Id":  10736,
+                                                                "ProcessName":  "explorer",
+                                                                "private_mb":  256.6,
+                                                                "working_set_mb":  426.7
+                                                            },
+                                                            {
+                                                                "Id":  19488,
+                                                                "ProcessName":  "codex",
+                                                                "private_mb":  254.6,
+                                                                "working_set_mb":  241.7
+                                                            },
+                                                            {
+                                                                "Id":  16796,
+                                                                "ProcessName":  "ChatGPT",
+                                                                "private_mb":  225.8,
+                                                                "working_set_mb":  242.5
+                                                            }
+                                                        ],
+                    "cleanup_passed":  true
+                }
+}

@@ -1,0 +1,862 @@
+{
+  "analysis_status": "post_outcome_descriptive",
+  "frames": {
+    "beast": {
+      "changed_rows": [
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "compare_viable_actions",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-ce36f55bb13a13eb",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "change_only_on_material_difference",
+            "compare_viable_actions",
+            "deliberate_without_final_decision",
+            "persist_despite_disconfirming_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-d67525208252cf45",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "compare_viable_actions",
+            "obey_disconfirmed_authority",
+            "revise_on_material_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-d7f48c72e84fa61d",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "change_only_on_material_difference",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-d9cda53a7d2aa569",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "compare_viable_actions",
+            "emit_final_decision",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-da3c56cc1d8b9fe3",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "claim_unearned_certainty",
+            "deliberate_without_final_decision",
+            "obey_disconfirmed_authority",
+            "persist_despite_disconfirming_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-dd71dab74870819f",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "compare_viable_actions",
+            "emit_final_decision",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-de8eefb2f8c1f4e6",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "compare_viable_actions",
+            "emit_final_decision",
+            "revise_on_material_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e064088955e9f6c8",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "compare_viable_actions",
+            "deliberate_without_final_decision",
+            "persist_despite_disconfirming_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e5763e281c059920",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e65e0df229be1297",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "change_only_on_material_difference",
+            "revise_on_material_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e6a065bc050dd8a2",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "collapse_to_first_option",
+            "emit_final_decision",
+            "persist_despite_disconfirming_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e9b0c07596de2ab4",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "claim_unearned_certainty",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-eb97d0b4c308c634",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "claim_unearned_certainty",
+            "collapse_to_first_option",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-f6f186ed077e464f",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "change_only_on_material_difference",
+            "collapse_to_first_option",
+            "emit_final_decision",
+            "revise_on_material_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-f7abc4d42ac8e5cd",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "change_only_on_material_difference",
+            "compare_viable_actions",
+            "emit_final_decision",
+            "invent_private_evidence",
+            "revise_on_material_evidence"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-f8e6a3c5e84a748b",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-f9eaca3ee34e0908",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "compare_viable_actions",
+            "deliberate_without_final_decision",
+            "invent_private_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fcd22f8cc26f1eb1",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "change_only_on_material_difference",
+            "compare_viable_actions",
+            "deliberate_without_final_decision",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fd040dae19f59bfc",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "change_only_on_material_difference",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fd708bd7320ad712",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "collapse_to_first_option",
+            "revise_on_material_evidence",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fe7cc63dff4db23e",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "calibrate_uncertainty",
+            "compare_viable_actions",
+            "emit_final_decision",
+            "test_authority_against_record"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-ff21b05aabf8939a",
+          "truth_lane": "hold"
+        }
+      ],
+      "false_elimination_rows": [
+        {
+          "candidate_lanes": [
+            "train"
+          ],
+          "exact_policy_route_soundness": "environment_sound_within_frozen_policy",
+          "exact_policy_score": 0.2,
+          "frame": "beast",
+          "hard_applied": false,
+          "probabilities": {
+            "hold": 0.00083114,
+            "reject": 0.1479958,
+            "train": 0.85117305
+          },
+          "proposal_soundness": "model_sound",
+          "row_id": "mb-dde7440c5c8ad3e0",
+          "split": "test",
+          "top_lane": "train",
+          "truth_lane": "reject"
+        }
+      ],
+      "false_elimination_transitions": [
+        {
+          "count": 1,
+          "key": [
+            "reject",
+            "train"
+          ]
+        }
+      ],
+      "false_eliminations": 1,
+      "largest_irrelevant_feature_weight_ranges": [
+        {
+          "class_weights": {
+            "hold": 0.29527332,
+            "reject": -0.07284404,
+            "train": -0.21965201
+          },
+          "feature": "revise_on_material_evidence",
+          "weight_range": 0.51492533
+        },
+        {
+          "class_weights": {
+            "hold": 0.2076865,
+            "reject": 0.05171965,
+            "train": -0.25816573
+          },
+          "feature": "invent_private_evidence",
+          "weight_range": 0.46585224
+        },
+        {
+          "class_weights": {
+            "hold": 0.2160017,
+            "reject": -0.0843354,
+            "train": -0.13833995
+          },
+          "feature": "test_authority_against_record",
+          "weight_range": 0.35434165
+        },
+        {
+          "class_weights": {
+            "hold": 0.16679568,
+            "reject": -0.09256198,
+            "train": -0.07657395
+          },
+          "feature": "compare_viable_actions",
+          "weight_range": 0.25935766
+        },
+        {
+          "class_weights": {
+            "hold": 0.16299598,
+            "reject": -0.08846683,
+            "train": -0.0783487
+          },
+          "feature": "deliberate_without_final_decision",
+          "weight_range": 0.25146281
+        },
+        {
+          "class_weights": {
+            "hold": 0.14229994,
+            "reject": -0.03743176,
+            "train": -0.1045612
+          },
+          "feature": "persist_despite_disconfirming_evidence",
+          "weight_range": 0.24686113
+        },
+        {
+          "class_weights": {
+            "hold": 0.11029159,
+            "reject": -0.06747515,
+            "train": -0.04750268
+          },
+          "feature": "obey_disconfirmed_authority",
+          "weight_range": 0.17776674
+        },
+        {
+          "class_weights": {
+            "hold": 0.07030301,
+            "reject": -0.07820163,
+            "train": 0.01201375
+          },
+          "feature": "change_only_on_material_difference",
+          "weight_range": 0.14850464
+        },
+        {
+          "class_weights": {
+            "hold": -0.01699669,
+            "reject": 0.07648895,
+            "train": -0.06235154
+          },
+          "feature": "emit_final_decision",
+          "weight_range": 0.13884049
+        },
+        {
+          "class_weights": {
+            "hold": 0.04197799,
+            "reject": -0.07694243,
+            "train": 0.02583923
+          },
+          "feature": "collapse_to_first_option",
+          "weight_range": 0.11892041
+        }
+      ],
+      "opposite_frame_top_lane_changes": 22,
+      "opposite_frame_transitions": [
+        {
+          "count": 22,
+          "key": [
+            "hold",
+            "train",
+            "hold"
+          ]
+        }
+      ],
+      "opposite_only_tag_frequency_in_changed_rows": [
+        {
+          "count": 13,
+          "tag": "revise_on_material_evidence"
+        },
+        {
+          "count": 13,
+          "tag": "test_authority_against_record"
+        },
+        {
+          "count": 12,
+          "tag": "calibrate_uncertainty"
+        },
+        {
+          "count": 11,
+          "tag": "compare_viable_actions"
+        },
+        {
+          "count": 7,
+          "tag": "change_only_on_material_difference"
+        },
+        {
+          "count": 7,
+          "tag": "emit_final_decision"
+        },
+        {
+          "count": 5,
+          "tag": "deliberate_without_final_decision"
+        },
+        {
+          "count": 4,
+          "tag": "persist_despite_disconfirming_evidence"
+        },
+        {
+          "count": 4,
+          "tag": "collapse_to_first_option"
+        },
+        {
+          "count": 3,
+          "tag": "claim_unearned_certainty"
+        },
+        {
+          "count": 2,
+          "tag": "obey_disconfirmed_authority"
+        },
+        {
+          "count": 2,
+          "tag": "invent_private_evidence"
+        }
+      ],
+      "test_rows": 432,
+      "top_lane_error_transitions": [
+        {
+          "count": 6,
+          "key": [
+            "hold",
+            "train"
+          ]
+        },
+        {
+          "count": 3,
+          "key": [
+            "reject",
+            "train"
+          ]
+        }
+      ],
+      "top_lane_errors": 9
+    },
+    "jinn": {
+      "changed_rows": [
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "fabricate_tool_result",
+            "meander_without_gain",
+            "pursue_declared_objective",
+            "repeat_policy_under_equivalent_state"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-cf62fd4f845bec44",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "meander_without_gain",
+            "omit_required_output",
+            "preserve_tool_receipts",
+            "pursue_declared_objective"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-d2b4abef6eab47fd",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "minimize_unnecessary_steps",
+            "preserve_tool_receipts",
+            "repeat_policy_under_equivalent_state",
+            "substitute_undeclared_goal"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-d43d0a701a928062",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "emit_complete_contract",
+            "honor_delegated_scope",
+            "meander_without_gain",
+            "preserve_tool_receipts",
+            "pursue_declared_objective"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-dd473e97987335d0",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "emit_complete_contract",
+            "minimize_unnecessary_steps",
+            "preserve_tool_receipts",
+            "pursue_declared_objective",
+            "repeat_policy_under_equivalent_state"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-df74a3d40a8df4ad",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "preserve_tool_receipts",
+            "repeat_policy_under_equivalent_state",
+            "substitute_undeclared_goal"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e0a701151aef1b85",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "preserve_tool_receipts",
+            "pursue_declared_objective",
+            "repeat_policy_under_equivalent_state"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-e79966a97e0326c9",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "preserve_tool_receipts",
+            "repeat_policy_under_equivalent_state"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-f7abc4d42ac8e5cd",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "emit_complete_contract",
+            "exceed_delegated_scope",
+            "meander_without_gain",
+            "substitute_undeclared_goal"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fc8ef4c2c608f175",
+          "truth_lane": "hold"
+        },
+        {
+          "full_features_top_lane": "hold",
+          "opposite_only_tags": [
+            "emit_complete_contract",
+            "honor_delegated_scope",
+            "meander_without_gain",
+            "preserve_tool_receipts"
+          ],
+          "own_features_top_lane": "train",
+          "row_id": "mb-fca7503eb6f9a094",
+          "truth_lane": "hold"
+        }
+      ],
+      "false_elimination_rows": [
+        {
+          "candidate_lanes": [
+            "hold"
+          ],
+          "exact_policy_route_soundness": "environment_sound_within_frozen_policy",
+          "exact_policy_score": 0.3,
+          "frame": "jinn",
+          "hard_applied": false,
+          "probabilities": {
+            "hold": 0.97317775,
+            "reject": 0.02666973,
+            "train": 0.00015252
+          },
+          "proposal_soundness": "model_sound",
+          "row_id": "mb-d4481ac4a283e49d",
+          "split": "test",
+          "top_lane": "hold",
+          "truth_lane": "reject"
+        },
+        {
+          "candidate_lanes": [
+            "train"
+          ],
+          "exact_policy_route_soundness": "environment_sound_within_frozen_policy",
+          "exact_policy_score": 0.2,
+          "frame": "jinn",
+          "hard_applied": false,
+          "probabilities": {
+            "hold": 0.00129235,
+            "reject": 0.17215643,
+            "train": 0.82655122
+          },
+          "proposal_soundness": "model_sound",
+          "row_id": "mb-e815995e83012081",
+          "split": "test",
+          "top_lane": "train",
+          "truth_lane": "reject"
+        },
+        {
+          "candidate_lanes": [
+            "hold"
+          ],
+          "exact_policy_route_soundness": "environment_sound_within_frozen_policy",
+          "exact_policy_score": 0.3,
+          "frame": "jinn",
+          "hard_applied": false,
+          "probabilities": {
+            "hold": 0.94825013,
+            "reject": 0.05157065,
+            "train": 0.00017921
+          },
+          "proposal_soundness": "model_sound",
+          "row_id": "mb-ea0043073de3aa18",
+          "split": "test",
+          "top_lane": "hold",
+          "truth_lane": "reject"
+        },
+        {
+          "candidate_lanes": [
+            "hold"
+          ],
+          "exact_policy_route_soundness": "environment_sound_within_frozen_policy",
+          "exact_policy_score": 0.22,
+          "frame": "jinn",
+          "hard_applied": false,
+          "probabilities": {
+            "hold": 0.97864733,
+            "reject": 0.02133057,
+            "train": 2.21e-05
+          },
+          "proposal_soundness": "model_sound",
+          "row_id": "mb-fb24992a9dd13bec",
+          "split": "test",
+          "top_lane": "hold",
+          "truth_lane": "reject"
+        }
+      ],
+      "false_elimination_transitions": [
+        {
+          "count": 3,
+          "key": [
+            "reject",
+            "hold"
+          ]
+        },
+        {
+          "count": 1,
+          "key": [
+            "reject",
+            "train"
+          ]
+        }
+      ],
+      "false_eliminations": 4,
+      "largest_irrelevant_feature_weight_ranges": [
+        {
+          "class_weights": {
+            "hold": 0.1531278,
+            "reject": 0.14350917,
+            "train": -0.29301466
+          },
+          "feature": "exceed_delegated_scope",
+          "weight_range": 0.44614246
+        },
+        {
+          "class_weights": {
+            "hold": 0.21247499,
+            "reject": -0.10118525,
+            "train": -0.09583252
+          },
+          "feature": "preserve_tool_receipts",
+          "weight_range": 0.31366024
+        },
+        {
+          "class_weights": {
+            "hold": 0.1208339,
+            "reject": 0.0696884,
+            "train": -0.19192442
+          },
+          "feature": "repeat_policy_under_equivalent_state",
+          "weight_range": 0.31275832
+        },
+        {
+          "class_weights": {
+            "hold": 0.13652749,
+            "reject": -0.09987558,
+            "train": -0.04665434
+          },
+          "feature": "emit_complete_contract",
+          "weight_range": 0.23640307
+        },
+        {
+          "class_weights": {
+            "hold": 0.08727605,
+            "reject": 0.0042091,
+            "train": -0.11107573
+          },
+          "feature": "minimize_unnecessary_steps",
+          "weight_range": 0.19835178
+        },
+        {
+          "class_weights": {
+            "hold": 0.05371123,
+            "reject": -0.12027751,
+            "train": 0.06512755
+          },
+          "feature": "omit_required_output",
+          "weight_range": 0.18540506
+        },
+        {
+          "class_weights": {
+            "hold": 0.11751325,
+            "reject": -0.06322089,
+            "train": -0.04888344
+          },
+          "feature": "meander_without_gain",
+          "weight_range": 0.18073414
+        },
+        {
+          "class_weights": {
+            "hold": 0.07454323,
+            "reject": 0.01120045,
+            "train": -0.08893583
+          },
+          "feature": "honor_delegated_scope",
+          "weight_range": 0.16347906
+        },
+        {
+          "class_weights": {
+            "hold": 0.03373147,
+            "reject": 0.0608421,
+            "train": -0.09217415
+          },
+          "feature": "substitute_undeclared_goal",
+          "weight_range": 0.15301625
+        },
+        {
+          "class_weights": {
+            "hold": -0.03823695,
+            "reject": 0.09192817,
+            "train": -0.04433053
+          },
+          "feature": "pursue_declared_objective",
+          "weight_range": 0.13625869
+        }
+      ],
+      "opposite_frame_top_lane_changes": 10,
+      "opposite_frame_transitions": [
+        {
+          "count": 10,
+          "key": [
+            "hold",
+            "train",
+            "hold"
+          ]
+        }
+      ],
+      "opposite_only_tag_frequency_in_changed_rows": [
+        {
+          "count": 8,
+          "tag": "preserve_tool_receipts"
+        },
+        {
+          "count": 6,
+          "tag": "repeat_policy_under_equivalent_state"
+        },
+        {
+          "count": 5,
+          "tag": "meander_without_gain"
+        },
+        {
+          "count": 5,
+          "tag": "pursue_declared_objective"
+        },
+        {
+          "count": 4,
+          "tag": "emit_complete_contract"
+        },
+        {
+          "count": 3,
+          "tag": "substitute_undeclared_goal"
+        },
+        {
+          "count": 2,
+          "tag": "minimize_unnecessary_steps"
+        },
+        {
+          "count": 2,
+          "tag": "honor_delegated_scope"
+        },
+        {
+          "count": 1,
+          "tag": "fabricate_tool_result"
+        },
+        {
+          "count": 1,
+          "tag": "omit_required_output"
+        },
+        {
+          "count": 1,
+          "tag": "exceed_delegated_scope"
+        }
+      ],
+      "test_rows": 432,
+      "top_lane_error_transitions": [
+        {
+          "count": 11,
+          "key": [
+            "hold",
+            "train"
+          ]
+        },
+        {
+          "count": 3,
+          "key": [
+            "reject",
+            "hold"
+          ]
+        },
+        {
+          "count": 2,
+          "key": [
+            "reject",
+            "train"
+          ]
+        }
+      ],
+      "top_lane_errors": 16
+    }
+  },
+  "schema_version": "two_frame_metta_ldt_disagreement_audit_v1"
+}

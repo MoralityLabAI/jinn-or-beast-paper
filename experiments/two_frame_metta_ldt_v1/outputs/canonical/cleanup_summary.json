@@ -1,0 +1,117 @@
+﻿{
+    "schema_version":  "two_frame_metta_ldt_cleanup_v1",
+    "run_id":  "two-frame-metta-ldt-v1",
+    "ts_utc":  "2026-07-25T22:09:45.8938546Z",
+    "owned_pids":  [
+                       26620
+                   ],
+    "owned_pids_stopped":  [
+
+                           ],
+    "lingering_owned_pids":  [
+
+                             ],
+    "wsl_action":  "not_used",
+    "docker_action":  "not_used",
+    "global_cache_purge":  "not_requested",
+    "memory_before":  {
+                          "total_mb":  24355.3,
+                          "available_mb":  12474.3,
+                          "used_mb":  11881,
+                          "committed_mb":  14427.8,
+                          "cache_mb":  554.4,
+                          "standby_mb":  12414.8,
+                          "page_reads_per_sec":  0
+                      },
+    "memory_after":  {
+                         "total_mb":  24355.3,
+                         "available_mb":  12473.1,
+                         "used_mb":  11882.2,
+                         "committed_mb":  14422,
+                         "cache_mb":  554.3,
+                         "standby_mb":  12414.4,
+                         "page_reads_per_sec":  0
+                     },
+    "gpu_before":  {
+                       "available":  true,
+                       "gpu":  [
+                                   "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                               ],
+                       "compute_apps":  [
+
+                                        ]
+                   },
+    "gpu_after":  {
+                      "available":  true,
+                      "gpu":  [
+                                  "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                              ],
+                      "compute_apps":  [
+
+                                       ]
+                  },
+    "python_cleanup_contract":  "trainer finally cleared model references and ran gc.collect; CUDA was never imported",
+    "top_processes_by_private_commit":  [
+                                            {
+                                                "Id":  13784,
+                                                "ProcessName":  "codex",
+                                                "private_mb":  465.2,
+                                                "working_set_mb":  415.1
+                                            },
+                                            {
+                                                "Id":  11192,
+                                                "ProcessName":  "Discord",
+                                                "private_mb":  391.9,
+                                                "working_set_mb":  354.1
+                                            },
+                                            {
+                                                "Id":  20108,
+                                                "ProcessName":  "firefox",
+                                                "private_mb":  380.6,
+                                                "working_set_mb":  370.6
+                                            },
+                                            {
+                                                "Id":  4656,
+                                                "ProcessName":  "MsMpEng",
+                                                "private_mb":  347.6,
+                                                "working_set_mb":  338
+                                            },
+                                            {
+                                                "Id":  8668,
+                                                "ProcessName":  "ChatGPT",
+                                                "private_mb":  334.6,
+                                                "working_set_mb":  358.6
+                                            },
+                                            {
+                                                "Id":  18800,
+                                                "ProcessName":  "firefox",
+                                                "private_mb":  297.4,
+                                                "working_set_mb":  313.1
+                                            },
+                                            {
+                                                "Id":  19320,
+                                                "ProcessName":  "firefox",
+                                                "private_mb":  271.7,
+                                                "working_set_mb":  119.4
+                                            },
+                                            {
+                                                "Id":  10736,
+                                                "ProcessName":  "explorer",
+                                                "private_mb":  256.6,
+                                                "working_set_mb":  426.7
+                                            },
+                                            {
+                                                "Id":  19488,
+                                                "ProcessName":  "codex",
+                                                "private_mb":  254.6,
+                                                "working_set_mb":  241.7
+                                            },
+                                            {
+                                                "Id":  16796,
+                                                "ProcessName":  "ChatGPT",
+                                                "private_mb":  225.8,
+                                                "working_set_mb":  242.5
+                                            }
+                                        ],
+    "cleanup_passed":  true
+}
