@@ -6,6 +6,7 @@ import gc
 import json
 import os
 import time
+from ctypes import wintypes
 from pathlib import Path
 from typing import Any
 
@@ -38,8 +39,8 @@ class IoCounters(ctypes.Structure):
 
 class ProcessMemoryCounters(ctypes.Structure):
     _fields_ = [
-        ("cb", ctypes.c_ulong),
-        ("page_fault_count", ctypes.c_ulong),
+        ("cb", wintypes.DWORD),
+        ("page_fault_count", wintypes.DWORD),
         ("peak_working_set", ctypes.c_size_t),
         ("working_set", ctypes.c_size_t),
         ("quota_peak_paged_pool", ctypes.c_size_t),
@@ -51,20 +52,33 @@ class ProcessMemoryCounters(ctypes.Structure):
     ]
 
 
+GET_PROCESS_MEMORY_INFO = ctypes.windll.psapi.GetProcessMemoryInfo
+GET_PROCESS_MEMORY_INFO.argtypes = [
+    wintypes.HANDLE,
+    ctypes.POINTER(ProcessMemoryCounters),
+    wintypes.DWORD,
+]
+GET_PROCESS_MEMORY_INFO.restype = wintypes.BOOL
+GET_PROCESS_IO_COUNTERS = ctypes.windll.kernel32.GetProcessIoCounters
+GET_PROCESS_IO_COUNTERS.argtypes = [
+    wintypes.HANDLE,
+    ctypes.POINTER(IoCounters),
+]
+GET_PROCESS_IO_COUNTERS.restype = wintypes.BOOL
+
+
 def process_memory_mb() -> float:
     counters = ProcessMemoryCounters()
     counters.cb = ctypes.sizeof(counters)
     handle = ctypes.windll.kernel32.GetCurrentProcess()
-    ok = ctypes.windll.psapi.GetProcessMemoryInfo(
-        handle, ctypes.byref(counters), counters.cb
-    )
+    ok = GET_PROCESS_MEMORY_INFO(handle, ctypes.byref(counters), counters.cb)
     return counters.working_set / (1024 * 1024) if ok else 0.0
 
 
 def process_io_bytes() -> int:
     counters = IoCounters()
     handle = ctypes.windll.kernel32.GetCurrentProcess()
-    ok = ctypes.windll.kernel32.GetProcessIoCounters(handle, ctypes.byref(counters))
+    ok = GET_PROCESS_IO_COUNTERS(handle, ctypes.byref(counters))
     return int(counters.read_bytes + counters.write_bytes) if ok else 0
 
 
@@ -278,6 +292,17 @@ def main() -> int:
                 <= checks["maximum_irrelevant_weight_fraction"]
             )
 
+        pilot_ready = all(promotion.values())
+        append_event(
+            events_path,
+            {
+                "event": "complete",
+                "status": "completed",
+                "steps_completed": int(model_config["epochs_per_frame"]) * 2,
+                "pilot_ready": pilot_ready,
+            },
+        )
+
         key_artifacts = [
             "dataset_receipt.json",
             "shared_candidates.jsonl",
@@ -319,7 +344,7 @@ def main() -> int:
             "wall_seconds": round(elapsed, 3),
             "metrics": all_metrics,
             "promotion_checks": promotion,
-            "pilot_ready": all(promotion.values()),
+            "pilot_ready": pilot_ready,
             "artifact_manifest": artifact_manifest,
             "claim_scope": registration["claim_boundary"],
             "cleanup": {
@@ -329,15 +354,6 @@ def main() -> int:
             },
         }
         write_json(output_dir / "summary.json", summary)
-        append_event(
-            events_path,
-            {
-                "event": "complete",
-                "status": "completed",
-                "steps_completed": summary["steps_completed"],
-                "pilot_ready": summary["pilot_ready"],
-            },
-        )
         return 0
     except Exception as exc:
         append_event(

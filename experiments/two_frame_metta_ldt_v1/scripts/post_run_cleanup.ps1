@@ -62,10 +62,10 @@ $Summary = [ordered]@{
   memory_after = $After
   gpu_before = $GpuBefore
   gpu_after = $GpuAfter
+  python_cleanup_contract = "trainer finally cleared model references and ran gc.collect; CUDA was never imported"
   top_processes_by_private_commit = $TopProcesses
   cleanup_passed = ($Lingering.Count -eq 0)
 }
 $Parent = Split-Path -Parent $SummaryPath
 New-Item -ItemType Directory -Path $Parent -Force | Out-Null
 $Summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $SummaryPath -Encoding UTF8
-
