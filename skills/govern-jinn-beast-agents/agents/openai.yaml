@@ -1,0 +1,4 @@
+interface:
+  display_name: "Govern Jinn/Beast Agents"
+  short_description: "Run persona agents through typed MeTTa membranes"
+  default_prompt: "Use $govern-jinn-beast-agents to run a Jinn or Beast proposal through the registered skill and MeTTa membrane."

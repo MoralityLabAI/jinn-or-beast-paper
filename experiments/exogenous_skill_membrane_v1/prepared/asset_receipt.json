@@ -1,0 +1,9 @@
+{
+  "artifacts": {
+    "prepared/style_candidates_beast.jsonl": "7dda51ec7dfaaa17f8bf4f59b514f65f2419daea35c4c2546bd9e586d47c7f85",
+    "prepared/style_candidates_jinn.jsonl": "d81d2a1330ebd5a0ca006278b88738718590982d6fc42b6d5422143b14e6ef22",
+    "prepared/tasks.jsonl": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
+  },
+  "registration_sha256": "0a257062a4722ed6cb82507ec92d3bc76710fc8f441aacec993d9a5b895bb0c9",
+  "schema_version": "exogenous_skill_membrane_asset_receipt_v1"
+}
