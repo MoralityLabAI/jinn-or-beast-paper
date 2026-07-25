@@ -57,6 +57,11 @@ The public response contract is:
 Do not request or store chain-of-thought. A malformed response is an invalid
 proposal, not evidence about the frame.
 
+The local 4-bit backend must be launched through the registered Windows Job
+Object wrapper. It refuses direct execution without the wrapper's cap-release
+token. The wrapper enforces exclusive GPU use, process memory, CPU, sustained
+I/O, VRAM, and timeout limits.
+
 ## Matched membrane
 
 Score each action under the selected frame:

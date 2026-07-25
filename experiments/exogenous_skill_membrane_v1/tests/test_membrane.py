@@ -12,6 +12,11 @@ if str(SKILL_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SKILL_SCRIPTS))
 
 from membrane import evaluate_proposal, inspect_task
+from run_control_flow import (
+    LocalTransformersBackend,
+    ProposalFormatError,
+    parse_public_response,
+)
 
 
 class MembraneTests(unittest.TestCase):
@@ -78,6 +83,29 @@ class MembraneTests(unittest.TestCase):
                 self.assertTrue(
                     all(action_id != source for action_id, source in sources.items())
                 )
+
+    def test_public_response_parser_discards_closed_thinking(self) -> None:
+        parsed = parse_public_response(
+            '<think>private scratch</think>{"decision":"path_a","message":"Public."}'
+        )
+        self.assertEqual(parsed, {"decision": "path_a", "message": "Public."})
+
+    def test_public_response_parser_rejects_extra_fields(self) -> None:
+        with self.assertRaises(ProposalFormatError):
+            parse_public_response(
+                '{"decision":"path_a","message":"Public.","reasoning":"hidden"}'
+            )
+
+    def test_local_backend_requires_cap_token_before_importing_model(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "hard-cap launcher"):
+            LocalTransformersBackend(
+                base_model_path=Path("missing-model"),
+                adapters={"jinn": None, "beast": None},
+                cache_dir=Path(".cache"),
+                max_tokens=16,
+                vram_limit_mb=100,
+                cap_token=Path("missing-cap-token"),
+            )
 
 
 if __name__ == "__main__":

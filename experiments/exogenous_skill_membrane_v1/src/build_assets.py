@@ -12,6 +12,7 @@ EXPERIMENT_ROOT = Path(__file__).resolve().parents[1]
 LDT_ROOT = REPO_ROOT / "experiments" / "two_frame_metta_ldt_v1"
 SKILL_ROOT = REPO_ROOT / "skills" / "govern-jinn-beast-agents"
 SOURCE_COMMIT = "61d9d574bf0e3a6b1440c62f4adc248caa2352e1"
+INITIAL_PROTOCOL_COMMIT = "19388e993a75ff2922c24dfcd18cce67f677f234"
 TASK_COUNT = 12
 STYLE_ROWS_PER_FRAME = 128
 
@@ -322,14 +323,36 @@ def build_registration(source_path: Path, tasks_path: Path) -> dict[str, Any]:
             "candidate_rows_per_frame": STYLE_ROWS_PER_FRAME,
             "behavioral_or_normative_promotion_allowed": False,
         },
+        "local_execution": {
+            "status": "ready_pending_explicit_resource_cap_approval",
+            "launcher": (
+                "experiments/exogenous_skill_membrane_v1/scripts/"
+                "run_local_capped.ps1"
+            ),
+            "exclusive_gpu": True,
+            "ram_limit_mb": 10240,
+            "minimum_available_ram_mb": 2048,
+            "cpu_percent": 50,
+            "io_limit_mb_per_second": 50,
+            "vram_limit_mb": 3840,
+            "timeout_seconds": 3600,
+            "checkpointing": "append each completed trace before the next generation",
+        },
         "source_anchors": {
             "paper_repo_commit_before_registration": SOURCE_COMMIT,
+            "initial_protocol_commit": INITIAL_PROTOCOL_COMMIT,
             "ldt_registration_sha256": sha256_file(LDT_ROOT / "registration.json"),
             "membrane_script_sha256": sha256_file(SKILL_ROOT / "scripts" / "membrane.py"),
             "control_flow_script_sha256": sha256_file(
                 SKILL_ROOT / "scripts" / "run_control_flow.py"
             ),
             "persona_sha256": sha256_file(SKILL_ROOT / "references" / "personas.json"),
+            "local_launcher_sha256": sha256_file(
+                EXPERIMENT_ROOT / "scripts" / "run_local_capped.ps1"
+            ),
+            "local_cleanup_sha256": sha256_file(
+                EXPERIMENT_ROOT / "scripts" / "post_run_cleanup.ps1"
+            ),
         },
         "claim_boundary": (
             "System-level boundary enforcement and descriptive persona color only. "

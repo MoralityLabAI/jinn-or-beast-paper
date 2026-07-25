@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import os
+import re
 import time
 import urllib.request
 from collections import defaultdict
@@ -19,6 +21,10 @@ CONDITIONS = (
     "matched_membrane",
     "shuffled_membrane",
 )
+
+
+class ProposalFormatError(ValueError):
+    """The model returned a public response that violates the frozen schema."""
 
 
 def canonical_json(value: Any) -> str:
@@ -38,6 +44,11 @@ def write_jsonl(path: Path, rows: list[Mapping[str, Any]]) -> None:
             handle.write(canonical_json(row) + "\n")
 
 
+def append_jsonl(path: Path, row: Mapping[str, Any]) -> None:
+    with path.open("a", encoding="utf-8", newline="\n") as handle:
+        handle.write(canonical_json(row) + "\n")
+
+
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     rows = []
     with path.open("r", encoding="utf-8") as handle:
@@ -49,6 +60,30 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
                 raise ValueError(f"{path}:{line_number}: row must be an object")
             rows.append(value)
     return rows
+
+
+def parse_public_response(text: str) -> dict[str, str]:
+    cleaned = text.strip()
+    if "</think>" in cleaned:
+        cleaned = cleaned.rsplit("</think>", 1)[1].strip()
+    elif cleaned.startswith("<think>"):
+        raise ProposalFormatError("unterminated hidden-reasoning block")
+    fenced = re.fullmatch(r"```(?:json)?\s*(.*?)\s*```", cleaned, flags=re.DOTALL)
+    if fenced:
+        cleaned = fenced.group(1).strip()
+    try:
+        parsed = json.loads(cleaned)
+    except json.JSONDecodeError as exc:
+        raise ProposalFormatError("response is not one JSON object") from exc
+    if not isinstance(parsed, dict) or set(parsed) != {"decision", "message"}:
+        raise ProposalFormatError(
+            "model response must contain only decision and message"
+        )
+    if not isinstance(parsed["decision"], str) or not isinstance(
+        parsed["message"], str
+    ):
+        raise ProposalFormatError("model decision and message must be strings")
+    return {"decision": parsed["decision"], "message": parsed["message"]}
 
 
 class Backend(Protocol):
@@ -158,19 +193,217 @@ class OpenAICompatibleBackend:
         with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
             value = json.loads(response.read().decode("utf-8"))
         text = value["choices"][0]["message"]["content"].strip()
-        parsed = json.loads(text)
-        if set(parsed) != {"decision", "message"}:
-            raise ValueError("model response must contain only decision and message")
-        if not isinstance(parsed["decision"], str) or not isinstance(
-            parsed["message"], str
-        ):
-            raise ValueError("model decision and message must be strings")
+        parsed = parse_public_response(text)
         return {
             **parsed,
             "backend": "openai_compatible",
             "model": self.models[frame],
             "usage": value.get("usage"),
         }
+
+
+class LocalTransformersBackend:
+    def __init__(
+        self,
+        *,
+        base_model_path: Path,
+        adapters: Mapping[str, Path | None],
+        cache_dir: Path,
+        max_tokens: int,
+        vram_limit_mb: int,
+        cap_token: Path,
+    ) -> None:
+        if not cap_token.is_file() or cap_token.read_text(
+            encoding="ascii"
+        ).strip() != "cap_enforced":
+            raise RuntimeError(
+                "local backend refuses to start outside the hard-cap launcher"
+            )
+        if not base_model_path.is_dir():
+            raise FileNotFoundError(f"missing local base model: {base_model_path}")
+        for frame, path in adapters.items():
+            if path is not None and not (path / "adapter_config.json").is_file():
+                raise FileNotFoundError(f"missing {frame} adapter: {path}")
+        os.environ.setdefault("HF_HUB_OFFLINE", "1")
+        os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+        os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+        os.environ.setdefault("ACCELERATE_DISABLE_RICH", "1")
+        os.environ.setdefault(
+            "PYTORCH_CUDA_ALLOC_CONF",
+            "expandable_segments:True,max_split_size_mb:64",
+        )
+        self.base_model_path = base_model_path
+        self.adapters = dict(adapters)
+        self.cache_dir = cache_dir
+        self.max_tokens = max_tokens
+        self.vram_limit_mb = vram_limit_mb
+        self.current_frame: str | None = None
+        self.model: Any = None
+        self.tokenizer: Any = None
+        self.torch: Any = None
+        self.peak_vram_mb = 0.0
+        self.model_loads = 0
+
+    def _release(self) -> None:
+        self.model = None
+        self.tokenizer = None
+        gc.collect()
+        if self.torch is not None and self.torch.cuda.is_available():
+            self.torch.cuda.synchronize()
+            self.torch.cuda.empty_cache()
+            if hasattr(self.torch.cuda, "ipc_collect"):
+                self.torch.cuda.ipc_collect()
+        self.current_frame = None
+
+    def _assert_vram(self, stage: str) -> None:
+        peak = float(self.torch.cuda.max_memory_allocated(0) / 1024 / 1024)
+        self.peak_vram_mb = max(self.peak_vram_mb, peak)
+        if peak > self.vram_limit_mb:
+            raise RuntimeError(
+                f"peak CUDA allocation {peak:.1f} MB exceeded "
+                f"{self.vram_limit_mb} MB at {stage}"
+            )
+
+    def _ensure_frame(self, frame: str) -> None:
+        if self.current_frame == frame:
+            return
+        self._release()
+        import torch
+        import transformers.modeling_utils as modeling_utils
+        from peft import PeftModel
+        from transformers import (
+            AutoConfig,
+            AutoModelForCausalLM,
+            AutoTokenizer,
+            BitsAndBytesConfig,
+        )
+
+        if not torch.cuda.is_available():
+            raise RuntimeError("CUDA is required for the local 4-bit backend")
+
+        def skip_cuda_allocator_warmup(*_args: Any, **_kwargs: Any) -> None:
+            return None
+
+        modeling_utils.caching_allocator_warmup = skip_cuda_allocator_warmup
+        self.torch = torch
+        torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats(0)
+        total_mb = torch.cuda.get_device_properties(0).total_memory / 1024 / 1024
+        torch.cuda.set_per_process_memory_fraction(
+            min(1.0, self.vram_limit_mb / total_mb), 0
+        )
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            str(self.base_model_path),
+            trust_remote_code=True,
+            cache_dir=str(self.cache_dir),
+            local_files_only=True,
+        )
+        if self.tokenizer.pad_token_id is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+        config = AutoConfig.from_pretrained(
+            str(self.base_model_path),
+            trust_remote_code=True,
+            cache_dir=str(self.cache_dir),
+            local_files_only=True,
+        )
+        config.pad_token_id = self.tokenizer.pad_token_id
+        quantization = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=torch.float16,
+        )
+        base = AutoModelForCausalLM.from_pretrained(
+            str(self.base_model_path),
+            config=config,
+            trust_remote_code=True,
+            cache_dir=str(self.cache_dir),
+            local_files_only=True,
+            quantization_config=quantization,
+            device_map={"": 0},
+            low_cpu_mem_usage=True,
+        )
+        adapter = self.adapters.get(frame)
+        self.model = (
+            PeftModel.from_pretrained(base, str(adapter), is_trainable=False)
+            if adapter is not None
+            else base
+        )
+        self.model.eval()
+        self.model.config.use_cache = True
+        self.current_frame = frame
+        self.model_loads += 1
+        self._assert_vram(f"{frame}_model_load")
+
+    def propose(
+        self,
+        *,
+        task: Mapping[str, Any],
+        frame: str,
+        condition: str,
+        system_prompt: str,
+        revision: Mapping[str, Any] | None,
+    ) -> dict[str, Any]:
+        self._ensure_frame(frame)
+        options = "\n".join(
+            f"- {action['action_id']}: {action['text']}" for action in task["actions"]
+        )
+        user = (
+            f"Scenario:\n{task['prompt']}\n\nAvailable actions:\n{options}\n\n"
+            "Return exactly one JSON object with keys decision and message."
+        )
+        if revision is not None:
+            survivors = ", ".join(revision["surviving_action_ids"])
+            user += (
+                f"\n\nYour prior decision ({revision['proposal_action_id']!r}) was not "
+                f"accepted. Revise once using only these surviving IDs: {survivors}."
+            )
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user},
+        ]
+        try:
+            rendered = self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,
+            )
+        except TypeError:
+            rendered = self.tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
+        inputs = self.tokenizer(rendered, return_tensors="pt").to("cuda")
+        with self.torch.inference_mode():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=self.max_tokens,
+                do_sample=False,
+                pad_token_id=self.tokenizer.pad_token_id,
+                eos_token_id=self.tokenizer.eos_token_id,
+            )
+        new_tokens = outputs[0][inputs["input_ids"].shape[-1] :]
+        raw = self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+        del inputs, outputs, new_tokens
+        self._assert_vram(f"{frame}_{condition}_generation")
+        parsed = parse_public_response(raw)
+        return {
+            **parsed,
+            "backend": "local_transformers_4bit",
+            "model": str(self.base_model_path),
+            "adapter": str(self.adapters.get(frame) or ""),
+        }
+
+    def runtime_receipt(self) -> dict[str, Any]:
+        return {
+            "backend": "local_transformers_4bit",
+            "model_loads": self.model_loads,
+            "peak_torch_cuda_allocated_mb": round(self.peak_vram_mb, 3),
+            "vram_limit_mb": self.vram_limit_mb,
+        }
+
+    def close(self) -> None:
+        self._release()
 
 
 def prompts() -> dict[str, Any]:
@@ -219,7 +452,7 @@ def run_one(
             )
             action_id = proposal.get("decision")
             parse_error = None
-        except Exception as exc:
+        except ProposalFormatError as exc:
             proposal = {
                 "decision": None,
                 "message": "",
@@ -334,7 +567,9 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tasks", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--backend", choices=("fixture", "openai"), default="fixture")
+    parser.add_argument(
+        "--backend", choices=("fixture", "openai", "local"), default="fixture"
+    )
     parser.add_argument(
         "--conditions",
         nargs="+",
@@ -355,6 +590,12 @@ def main() -> int:
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--max-tokens", type=int, default=220)
     parser.add_argument("--timeout-seconds", type=int, default=180)
+    parser.add_argument("--base-model-path", type=Path)
+    parser.add_argument("--adapter-jinn", type=Path)
+    parser.add_argument("--adapter-beast", type=Path)
+    parser.add_argument("--cache-dir", type=Path, default=Path(".cache/huggingface"))
+    parser.add_argument("--vram-limit-mb", type=int, default=3840)
+    parser.add_argument("--cap-token", type=Path)
     args = parser.parse_args()
 
     tasks = read_jsonl(args.tasks)
@@ -362,7 +603,7 @@ def main() -> int:
         load_frame_bundle(args.repo_root, frame)
     if args.backend == "fixture":
         backend: Backend = FixtureBackend()
-    else:
+    elif args.backend == "openai":
         backend = OpenAICompatibleBackend(
             base_url=args.api_base_url,
             api_key=os.environ.get(args.api_key_env, ""),
@@ -371,35 +612,63 @@ def main() -> int:
             max_tokens=args.max_tokens,
             timeout_seconds=args.timeout_seconds,
         )
+    else:
+        if args.base_model_path is None or args.cap_token is None:
+            raise ValueError(
+                "local backend requires --base-model-path and --cap-token"
+            )
+        backend = LocalTransformersBackend(
+            base_model_path=args.base_model_path.resolve(),
+            adapters={
+                "jinn": args.adapter_jinn.resolve() if args.adapter_jinn else None,
+                "beast": args.adapter_beast.resolve() if args.adapter_beast else None,
+            },
+            cache_dir=args.cache_dir.resolve(),
+            max_tokens=args.max_tokens,
+            vram_limit_mb=args.vram_limit_mb,
+            cap_token=args.cap_token.resolve(),
+        )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    events = []
+    traces_path = args.output_dir / "traces.jsonl"
+    events_path = args.output_dir / "events.jsonl"
+    write_jsonl(traces_path, [])
+    write_jsonl(events_path, [])
     rows = []
-    for task in tasks:
+    try:
         for frame in args.frames:
-            for condition in args.conditions:
-                started = time.monotonic()
-                row = run_one(
-                    backend,
-                    task=task,
-                    frame=frame,
-                    condition=condition,
-                    repo_root=args.repo_root,
-                )
-                rows.append(row)
-                events.append(
-                    {
+            for task in tasks:
+                for condition in args.conditions:
+                    started = time.monotonic()
+                    row = run_one(
+                        backend,
+                        task=task,
+                        frame=frame,
+                        condition=condition,
+                        repo_root=args.repo_root,
+                    )
+                    rows.append(row)
+                    event = {
                         "event": "completed_trace",
                         "task_id": task["task_id"],
                         "frame": frame,
                         "condition": condition,
                         "status": row["status"],
-                        "elapsed_seconds": round(time.monotonic() - started, 6),
+                        "elapsed_seconds": (
+                            0.0
+                            if args.backend == "fixture"
+                            else round(time.monotonic() - started, 6)
+                        ),
                     }
-                )
-    write_jsonl(args.output_dir / "traces.jsonl", rows)
-    write_jsonl(args.output_dir / "events.jsonl", events)
-    write_json(args.output_dir / "summary.json", summarize(rows))
+                    append_jsonl(traces_path, row)
+                    append_jsonl(events_path, event)
+        summary = summarize(rows)
+        if isinstance(backend, LocalTransformersBackend):
+            summary["runtime"] = backend.runtime_receipt()
+    finally:
+        if isinstance(backend, LocalTransformersBackend):
+            backend.close()
+    write_json(args.output_dir / "summary.json", summary)
     return 0
 
 

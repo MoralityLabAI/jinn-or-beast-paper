@@ -45,5 +45,6 @@ Never describe the shuffled condition as a moral frame.
 - Never silently substitute the highest-scoring action for the model proposal.
 - Permit at most one model revision.
 - Do not retain hidden reasoning. Store the public message and decision only.
+- Refuse local model execution unless the hard-cap launcher releases its token.
 - Keep adapter color and membrane control as separate estimands.
 - Label all present frames `unverified_normative_frame`.

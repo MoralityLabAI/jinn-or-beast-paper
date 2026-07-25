@@ -1,12 +1,12 @@
 {
   "artifacts": {
-    "analysis.json": "f7656e0713fcde7c09f7ebd1621b24a8a6dc46ab82e20a4dc5922cf944c9b4f8",
-    "events.jsonl": "133b33a768672d6e95805a27f862cc654752c0a84950fdd9fd3faeb5e6470529",
+    "analysis.json": "20b1b8123b95b510cb4a6ac58a96392ce348d6af4e7b260a06ae5791c670a343",
+    "events.jsonl": "180c928ec9e858063a4b7381811f967c661d97b0dcdc33b4f1ab67d186f2a850",
     "summary.json": "954d7a970ecb1295a2f3a5cd705227d950f1d0fc1bf93e7e9dd6f6ba1b16788d",
-    "traces.jsonl": "b54a3a06c34f08f4fcff355bbb880a21ab4b33b58efc660721af4eb7a1f31b8a"
+    "traces.jsonl": "ada9c4d74e2dedca4b75253473c43e871448a041d174184e95d21e71d1d57968"
   },
   "backend_kind": "fixture",
-  "registration_sha256": "0a257062a4722ed6cb82507ec92d3bc76710fc8f441aacec993d9a5b895bb0c9",
+  "registration_sha256": "f951c3a10225ecc685c7e1954643e4c9015cd49f9e673aa09c901636ad5e8d0e",
   "schema_version": "exogenous_skill_membrane_run_receipt_v1",
   "tasks_sha256": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
 }
