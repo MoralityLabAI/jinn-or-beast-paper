@@ -1,0 +1,4 @@
+outputs/canonical/stdout.log
+outputs/canonical/stderr.log
+outputs/canonical/cap-release.token
+outputs/canonical/owned_pid.json

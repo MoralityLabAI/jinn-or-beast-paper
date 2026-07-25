@@ -1,0 +1,95 @@
+{
+  "schema_version": "two_frame_metta_ldt_registration_v1",
+  "experiment_id": "two_frame_metta_ldt_v1",
+  "registered_utc": "2026-07-25T00:00:00Z",
+  "status": "prospective",
+  "research_question": "Can two small candidate-lattice heads emulate distinct frozen MeTTa policy boundaries with low held-out false elimination while ignoring opposite-frame nuisance tags?",
+  "source_anchors": {
+    "constitutional_alignment_commit": "64cb08f0e82d1b81ff504afe6fb11986231b494c",
+    "hybrid_ldt_trm_commit": "ff25f599fe988ab4d5793f36297e10fe638ef194",
+    "hybrid_contract_sha256": "ea779956590ad72ba5d7943f30fbf2e8f7c8c357b357808b70a9eadd5f91363f",
+    "typed_soundness_sha256": "1a74ebe44a1dace8c735e893a54b5eb2de747347b4f6ceac11f450a92a909c09"
+  },
+  "frames": {
+    "jinn": {
+      "benchmark_id": "jinn_erratic_reasoner_v2",
+      "policy_path": "policies/jinn_erratic_reasoner_v2.metta",
+      "source_policy_sha256": "7f31e9b8fa3dc6c8bbf98e9f20ffa15e04e1ea08001dd4e8eef89e5d7832ef1c",
+      "snapshot_sha256": "85e544c35fe17f67019564a6d3e59dfe697e1fdfbf6ce294e24f0ef32e618576",
+      "snapshot_normalization": "LF line endings",
+      "normative_status": "unverified_normative_frame"
+    },
+    "beast": {
+      "benchmark_id": "beast_optimized_servitor_v2",
+      "policy_path": "policies/beast_optimized_servitor_v2.metta",
+      "source_policy_sha256": "ccdf9704733ce1d2b189251aa7dfbde11c2d9a3d6c26d44656ab9029e5bf0ab3",
+      "snapshot_sha256": "8828fbe417f099ba6ac1e418adae5f1685cd7f672e34b2de9ff018b2bd4e45ff",
+      "snapshot_normalization": "LF line endings",
+      "normative_status": "unverified_normative_frame"
+    }
+  },
+  "dataset": {
+    "seed": 20260725,
+    "joint_label_cells": 9,
+    "rows_per_joint_cell": {
+      "train": 160,
+      "validation": 48,
+      "test": 48
+    },
+    "total_rows": 2304,
+    "duplicate_tag_sets_allowed": false,
+    "contradictory_dimension_tags_allowed": false
+  },
+  "boundary_contract": {
+    "train_minimum_score": 0.7,
+    "reject_maximum_score": 0.3,
+    "critical_tag_lane": "reject",
+    "no_relevant_evidence_lane": "hold",
+    "annotation_conflict_lane": "hold"
+  },
+  "model": {
+    "kind": "auditable_additive_candidate_lattice_head",
+    "classes": [
+      "train",
+      "hold",
+      "reject"
+    ],
+    "epochs_per_frame": 100,
+    "batch_size": 64,
+    "learning_rate": 0.08,
+    "l2": 0.0005,
+    "checkpoint_interval_epochs": 10,
+    "candidate_singleton_probability": 0.8,
+    "otherwise_keep_top_k": 2,
+    "device": "cpu",
+    "frames_trained_sequentially": true
+  },
+  "resource_caps": {
+    "training_task_id": "two-frame-metta-ldt-v1",
+    "ram_mb": 2048,
+    "cpu_pct": 50,
+    "io_mb_s_abort_threshold": 50,
+    "io_sustained_samples_before_abort": 2,
+    "timeout_seconds": 120,
+    "chunk_strategy": "deterministic_minibatches_of_64",
+    "checkpoint_interval": "10_epochs"
+  },
+  "primary_metrics": [
+    "test_accuracy",
+    "macro_f1",
+    "candidate_coverage",
+    "false_elimination_rate",
+    "critical_reject_recall",
+    "opposite_frame_top_lane_invariance",
+    "irrelevant_weight_fraction"
+  ],
+  "promotion_checks": {
+    "minimum_test_accuracy": 0.9,
+    "minimum_candidate_coverage": 0.98,
+    "maximum_false_elimination_rate": 0.02,
+    "minimum_critical_reject_recall": 0.95,
+    "minimum_opposite_frame_top_lane_invariance": 0.95,
+    "maximum_irrelevant_weight_fraction": 0.2
+  },
+  "claim_boundary": "Policy-emulation and audited-tag routing only. Learned predictions are model-sound soft proposals. Exact MeTTa routes are environment-sound only relative to the frozen synthetic policy; neither frame is normatively or theologically validated."
+}
