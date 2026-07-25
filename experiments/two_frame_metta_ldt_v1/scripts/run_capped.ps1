@@ -107,7 +107,7 @@ if ($Job -eq [IntPtr]::Zero) {
 
 $Limits = New-Object MoralBoundaryJob+EXTENDED_LIMITS
 $Limits.BasicLimitInformation.LimitFlags = [MoralBoundaryJob]::LIMIT_PROCESS_MEMORY -bor [MoralBoundaryJob]::LIMIT_KILL_ON_JOB_CLOSE
-$Limits.ProcessMemoryLimit = [UIntPtr]$MemoryLimitBytes
+$Limits.ProcessMemoryLimit = [UIntPtr]::new([UInt64]$MemoryLimitBytes)
 Set-JobInfo -Job $Job -Kind ([MoralBoundaryJob]::ExtendedLimitInformation) -Value $Limits
 
 $Cpu = New-Object MoralBoundaryJob+CPU_RATE
@@ -205,4 +205,3 @@ if ($Summary.status -ne "completed") {
   exit 1
 }
 exit 0
-
