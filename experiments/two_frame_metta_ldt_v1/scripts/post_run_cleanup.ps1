@@ -68,4 +68,10 @@ $Summary = [ordered]@{
 }
 $Parent = Split-Path -Parent $SummaryPath
 New-Item -ItemType Directory -Path $Parent -Force | Out-Null
-$Summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $SummaryPath -Encoding UTF8
+$SummaryJson = $Summary | ConvertTo-Json -Depth 8
+$SummaryJson = $SummaryJson.Replace("`r`n", "`n") + "`n"
+[System.IO.File]::WriteAllText(
+  $SummaryPath,
+  $SummaryJson,
+  (New-Object System.Text.UTF8Encoding($false))
+)

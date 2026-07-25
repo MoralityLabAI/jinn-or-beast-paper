@@ -199,7 +199,13 @@ if ($AbortReason -or ($Process -and $Process.ExitCode -ne 0)) {
   $Summary.status = "aborted"
   $Summary.abort_reason = if ($AbortReason) { $AbortReason } else { "trainer_exit_$($Process.ExitCode)" }
 }
-$Summary | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $SummaryPath -Encoding UTF8
+$SummaryJson = $Summary | ConvertTo-Json -Depth 12
+$SummaryJson = $SummaryJson.Replace("`r`n", "`n") + "`n"
+[System.IO.File]::WriteAllText(
+  $SummaryPath,
+  $SummaryJson,
+  (New-Object System.Text.UTF8Encoding($false))
+)
 
 if ($Summary.status -ne "completed") {
   exit 1

@@ -148,6 +148,25 @@ def main() -> int:
 
     write_json(args.output_dir / "disagreement_audit.json", audit)
 
+    key_artifacts = [
+        "dataset_receipt.json",
+        "shared_candidates.jsonl",
+        "models/jinn.json",
+        "models/beast.json",
+        "metrics.json",
+        "heldout_predictions.jsonl",
+        "events.jsonl",
+    ]
+    artifact_manifest = {
+        relative: sha256_file(args.output_dir / relative)
+        for relative in key_artifacts
+    }
+    write_json(args.output_dir / "artifact_manifest.json", artifact_manifest)
+    summary_path = args.output_dir / "summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8-sig"))
+    summary["artifact_manifest"] = artifact_manifest
+    write_json(summary_path, summary)
+
     excluded = {
         "final_manifest.json",
         "owned_pid.json",
@@ -179,4 +198,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
