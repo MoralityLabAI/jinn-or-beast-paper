@@ -323,6 +323,9 @@ class LocalTransformersBackend:
             device_map={"": 0},
             low_cpu_mem_usage=True,
         )
+        torch.cuda.synchronize()
+        torch.cuda.empty_cache()
+        gc.collect()
         adapter = self.adapters.get(frame)
         self.model = (
             PeftModel.from_pretrained(base, str(adapter), is_trainable=False)

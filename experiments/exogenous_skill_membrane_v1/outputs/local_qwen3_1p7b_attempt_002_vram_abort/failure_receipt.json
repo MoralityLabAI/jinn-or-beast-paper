@@ -1,0 +1,14 @@
+{
+  "attempt_id": "local_qwen3_1p7b_attempt_002",
+  "behavioral_traces_produced": 0,
+  "cleanup_passed": true,
+  "failed_utc": "2026-07-26T00:09:50Z",
+  "failure_stage": "base_model_load",
+  "gpu_memory_allocated_after_cleanup_mb": 0,
+  "peak_nvidia_smi_vram_mb": 3913,
+  "registered_vram_limit_mb": 3840,
+  "retry_change": "synchronize and release temporary CUDA load caches immediately after base-model construction",
+  "schema_version": "exogenous_skill_membrane_failed_attempt_v1",
+  "status": "aborted_before_model_outcome",
+  "wrapper_abort_reason": "vram_cap_exceeded"
+}

@@ -78,7 +78,7 @@
     "adapter_by_membrane_interaction"
   ],
   "source_anchors": {
-    "control_flow_script_sha256": "00cd80bcd54008f0735e3c7398a7c963fab4f544be8abb27c2d1f69b45ddcd7d",
+    "control_flow_script_sha256": "2bf73b09f8b3b4e007bdb279a733b958835cbd519bda6caa14c3ae075633fbdc",
     "initial_protocol_commit": "19388e993a75ff2922c24dfcd18cce67f677f234",
     "ldt_registration_sha256": "b66e313cfd0ec9f01d8b080613d38baa2560c779cf2c36c6d141134c986d4d43",
     "local_cleanup_sha256": "561fc16011cb165fad88e04676485f8fa3d1dcbd793a0efaa588be0148996225",

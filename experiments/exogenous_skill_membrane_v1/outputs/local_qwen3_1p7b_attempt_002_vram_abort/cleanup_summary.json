@@ -1,0 +1,50 @@
+{
+    "schema_version":  "exogenous_skill_membrane_cleanup_v1",
+    "run_id":  "exogenous-skill-membrane-local-qwen3-1p7b",
+    "ts_utc":  "2026-07-26T00:09:53.0365073Z",
+    "owned_pids":  [
+                       22840
+                   ],
+    "lingering_owned_pids":  [
+
+                             ],
+    "wsl_action":  "not_used",
+    "docker_action":  "not_used",
+    "global_cache_purge":  "not_requested",
+    "memory_before":  {
+                          "total_mb":  24355.3,
+                          "available_mb":  12817.5,
+                          "used_mb":  11537.8,
+                          "committed_mb":  14238.9,
+                          "cache_mb":  414.3,
+                          "standby_mb":  12114.3
+                      },
+    "memory_after":  {
+                         "total_mb":  24355.3,
+                         "available_mb":  12790.3,
+                         "used_mb":  11565,
+                         "committed_mb":  14225.7,
+                         "cache_mb":  412.5,
+                         "standby_mb":  12116.2
+                     },
+    "gpu_before":  {
+                       "available":  true,
+                       "gpu":  [
+                                   "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                               ],
+                       "compute_apps":  [
+
+                                        ]
+                   },
+    "gpu_after":  {
+                      "available":  true,
+                      "gpu":  [
+                                  "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                              ],
+                      "compute_apps":  [
+
+                                       ]
+                  },
+    "python_cleanup_contract":  "model references cleared; gc.collect and CUDA empty_cache/ipc_collect requested",
+    "cleanup_passed":  true
+}

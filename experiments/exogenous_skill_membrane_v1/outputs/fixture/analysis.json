@@ -1,7 +1,7 @@
 {
   "all_applicable_gates_pass": true,
   "anchors": {
-    "registration_sha256": "3e1286501f8f5e0e3b275f71918f3c850a26d84eaf0cd1b3af3d969d4685b269",
+    "registration_sha256": "711cb7b0024ecf4320f2925125144c409fa175a478502e3685f9b8380b8e066e",
     "tasks_sha256": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
   },
   "backend_kind": "fixture",
