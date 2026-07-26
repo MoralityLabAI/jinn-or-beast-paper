@@ -1,0 +1,6 @@
+C:\projects\jinn-or-beast-paper\experiments\exogenous_skill_membrane_v1\scripts\run_local_capped.ps1 : El t‚rmino 'if' 
+no se reconoce como nombre de un cmdlet, funci¢n, archivo de script o programa ejecutable. Compruebe si escribi¢ 
+correctamente el nombre o, si incluy¢ una ruta de acceso, compruebe que dicha ruta es correcta e int‚ntelo de nuevo.
+    + CategoryInfo          : ObjectNotFound: (if:String) [run_local_capped.ps1], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException,run_local_capped.ps1
+ 

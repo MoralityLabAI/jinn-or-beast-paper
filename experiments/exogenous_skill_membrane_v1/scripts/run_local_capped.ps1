@@ -284,8 +284,12 @@ $Summary | Add-Member -NotePropertyName cap_enforcement -NotePropertyValue ([ord
   abort_reason = $AbortReason
 }) -Force
 $Summary | Add-Member -NotePropertyName cleanup -NotePropertyValue $Cleanup -Force
-$Summary | Add-Member -NotePropertyName status -NotePropertyValue (
-  if (-not $AbortReason -and $Process -and $Process.ExitCode -eq 0 -and $Cleanup.cleanup_passed) { "completed" } else { "aborted" }
+$Summary | Add-Member -NotePropertyName status -NotePropertyValue $(
+  if (-not $AbortReason -and $Process -and $Process.ExitCode -eq 0 -and $Cleanup.cleanup_passed) {
+    "completed"
+  } else {
+    "aborted"
+  }
 ) -Force
 $SummaryJson = ($Summary | ConvertTo-Json -Depth 12).Replace("`r`n", "`n") + "`n"
 [System.IO.File]::WriteAllText(

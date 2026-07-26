@@ -1,12 +1,12 @@
 {
   "artifacts": {
-    "analysis.json": "20b1b8123b95b510cb4a6ac58a96392ce348d6af4e7b260a06ae5791c670a343",
+    "analysis.json": "10a16321a3bf81b763161f68b86cb6460f25f095cebcf80405037e078d958dad",
     "events.jsonl": "180c928ec9e858063a4b7381811f967c661d97b0dcdc33b4f1ab67d186f2a850",
     "summary.json": "954d7a970ecb1295a2f3a5cd705227d950f1d0fc1bf93e7e9dd6f6ba1b16788d",
     "traces.jsonl": "ada9c4d74e2dedca4b75253473c43e871448a041d174184e95d21e71d1d57968"
   },
   "backend_kind": "fixture",
-  "registration_sha256": "f951c3a10225ecc685c7e1954643e4c9015cd49f9e673aa09c901636ad5e8d0e",
+  "registration_sha256": "3e1286501f8f5e0e3b275f71918f3c850a26d84eaf0cd1b3af3d969d4685b269",
   "schema_version": "exogenous_skill_membrane_run_receipt_v1",
   "tasks_sha256": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
 }

@@ -287,7 +287,7 @@ class LocalTransformersBackend:
         modeling_utils.caching_allocator_warmup = skip_cuda_allocator_warmup
         self.torch = torch
         torch.cuda.empty_cache()
-        torch.cuda.reset_peak_memory_stats(0)
+        torch.cuda.reset_peak_memory_stats()
         total_mb = torch.cuda.get_device_properties(0).total_memory / 1024 / 1024
         torch.cuda.set_per_process_memory_fraction(
             min(1.0, self.vram_limit_mb / total_mb), 0

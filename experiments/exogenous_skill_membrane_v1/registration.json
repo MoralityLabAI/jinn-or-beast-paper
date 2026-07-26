@@ -78,11 +78,11 @@
     "adapter_by_membrane_interaction"
   ],
   "source_anchors": {
-    "control_flow_script_sha256": "e703402ecbb3edba29fc0dfae05ec4fe3f5d33d0a39c7e98924296ff48022310",
+    "control_flow_script_sha256": "00cd80bcd54008f0735e3c7398a7c963fab4f544be8abb27c2d1f69b45ddcd7d",
     "initial_protocol_commit": "19388e993a75ff2922c24dfcd18cce67f677f234",
     "ldt_registration_sha256": "b66e313cfd0ec9f01d8b080613d38baa2560c779cf2c36c6d141134c986d4d43",
     "local_cleanup_sha256": "561fc16011cb165fad88e04676485f8fa3d1dcbd793a0efaa588be0148996225",
-    "local_launcher_sha256": "f81156ef9385afdd8f2b871936905056f7e0b86734da7f48beb6179b79e1464c",
+    "local_launcher_sha256": "aa31d079a97fd24f34766f7b202c3c4603ad6d708fcf943da0d7fd571e66830f",
     "membrane_script_sha256": "8736ce209113eda5b52e812311cbcfd7e6f4ec5a459adb6dc6ad2a08103eb9ec",
     "paper_repo_commit_before_registration": "61d9d574bf0e3a6b1440c62f4adc248caa2352e1",
     "persona_sha256": "118f5fd044c6115936d43e42af0e052044958cbe23fa0d65370f0d56fc60d31e"

@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "C:\projects\jinn-or-beast-paper\skills\govern-jinn-beast-agents\scripts\run_control_flow.py", line 676, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\projects\jinn-or-beast-paper\skills\govern-jinn-beast-agents\scripts\run_control_flow.py", line 643, in main
+    row = run_one(
+          ^^^^^^^^
+  File "C:\projects\jinn-or-beast-paper\skills\govern-jinn-beast-agents\scripts\run_control_flow.py", line 446, in run_one
+    proposal = backend.propose(
+               ^^^^^^^^^^^^^^^^
+  File "C:\projects\jinn-or-beast-paper\skills\govern-jinn-beast-agents\scripts\run_control_flow.py", line 347, in propose
+    self._ensure_frame(frame)
+  File "C:\projects\jinn-or-beast-paper\skills\govern-jinn-beast-agents\scripts\run_control_flow.py", line 290, in _ensure_frame
+    torch.cuda.reset_peak_memory_stats(0)
+  File "C:\Users\patri\AppData\Roaming\Python\Python311\site-packages\torch\cuda\memory.py", line 344, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Invalid device argument 

@@ -1,0 +1,17 @@
+{
+  "attempt_id": "local_qwen3_1p7b_attempt_001",
+  "behavioral_traces_produced": 0,
+  "cleanup_passed": true,
+  "failed_utc": "2026-07-26T00:07:16Z",
+  "failure_stage": "before_model_load",
+  "gpu_memory_allocated_mb": 0,
+  "implementation_fixes": [
+    "call torch.cuda.reset_peak_memory_stats without an explicit device argument",
+    "use a PowerShell subexpression for the wrapper completion status"
+  ],
+  "primary_error": "RuntimeError: Invalid device argument",
+  "retry_allowed": true,
+  "schema_version": "exogenous_skill_membrane_failed_attempt_v1",
+  "status": "failed_no_model_outcome",
+  "wrapper_error": "PowerShell treated the parenthesized if expression as a command"
+}

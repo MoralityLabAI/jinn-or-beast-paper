@@ -4,6 +4,6 @@
     "prepared/style_candidates_jinn.jsonl": "d81d2a1330ebd5a0ca006278b88738718590982d6fc42b6d5422143b14e6ef22",
     "prepared/tasks.jsonl": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
   },
-  "registration_sha256": "f951c3a10225ecc685c7e1954643e4c9015cd49f9e673aa09c901636ad5e8d0e",
+  "registration_sha256": "3e1286501f8f5e0e3b275f71918f3c850a26d84eaf0cd1b3af3d969d4685b269",
   "schema_version": "exogenous_skill_membrane_asset_receipt_v1"
 }
