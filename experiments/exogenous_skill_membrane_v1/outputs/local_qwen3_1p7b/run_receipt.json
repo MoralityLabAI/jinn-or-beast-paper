@@ -1,0 +1,18 @@
+{
+  "artifacts": {
+    "analysis.json": "2fab33c238fa0939bd309bb395d2564117ba617c163e26d524ed27d7aa1fcdd7",
+    "cleanup_summary.json": "714b5152b6d726c082e4e9092aa98b0fdde822508ba7f03d071190f9979e47c0",
+    "events.jsonl": "d84559f6bdc20735f2040c54382ce5d254d7800c2cd3b58c141997ddfb2bf452",
+    "owned_pid.json": "691c41d75d14bdbe5ba1c2b592e20564f10312980906d4e172dec7e5fbc62c93",
+    "stderr.log": "82135d2d0397a4adacab4958cbae84236e098e0de3977090612ba6bbcd965576",
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary.json": "1a9ce3932f24203059d39306d6b27b975b90d0e16afaca4d8b16c08b3c60f79f",
+    "traces.jsonl": "2c375c4292a1994533a6067eef0930e6bdf79fce07dde238dd5913f7432392f5",
+    "wrapper.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "wrapper.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "backend_kind": "model",
+  "registration_sha256": "711cb7b0024ecf4320f2925125144c409fa175a478502e3685f9b8380b8e066e",
+  "schema_version": "exogenous_skill_membrane_run_receipt_v1",
+  "tasks_sha256": "4935972848c5bf87fb4e7cc8752a348b90574ab970845484e9b9840c8cbf4624"
+}

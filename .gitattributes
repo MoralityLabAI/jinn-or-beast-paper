@@ -2,3 +2,5 @@
 /experiments/two_frame_metta_ldt_v1/** text eol=lf
 /experiments/exogenous_skill_membrane_v1/** text eol=lf
 /skills/govern-jinn-beast-agents/** text eol=lf
+/experiments/exogenous_skill_membrane_v1/outputs/**/owned_pid.json -text
+/experiments/exogenous_skill_membrane_v1/outputs/**/*.log -text

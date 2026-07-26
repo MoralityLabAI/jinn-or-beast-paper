@@ -53,6 +53,16 @@ estimands, gates, and analysis are frozen; registered outcomes are not yet run. 
 for Islamic AI ethics frameworks and for alignment methodologies that are
 epistemically legible to non-Western governance traditions.
 
+We additionally report a prospectively frozen exogenous-control experiment on
+local Qwen3-1.7B. Persona skills changed 4/12 Jinn and 5/12 Beast proposals
+relative to a neutral action contract. A matching typed MeTTa membrane made one
+targeted correction across 24 frame-task pairs and ended with zero registered
+critical actions; a semantically shuffled membrane made 11 interventions and
+ended with three critical actions. The result supports an agentic architecture
+in which personas supply descriptive color while an inspectable external
+membrane supplies selective boundary control. It is not evidence of
+weight-level moral internalization or validated theological alignment.
+
 ---
 
 ## 1. Introduction
@@ -86,7 +96,7 @@ uncontested conclusion. Exact fielded treatment wording is subject to qualified
 scholar review; while review is pending, its unreviewed state must be disclosed
 and no theological-adequacy claim is permitted.
 
-The empirical arc has three chapters. Chapter one (§4) asks whether
+The empirical arc has four chapters. Chapter one (§4) asks whether
 eschatological framing does anything at the prompt level that secular
 accountability framing does not. The tested behavioral proxies show no such
 advantage. Chapter two (§5) asks which frames
@@ -97,7 +107,10 @@ what prompting cannot — move the policy rather than the presentation. We
 contribute the frozen infrastructure and preregistered protocol for that test,
 plus a validated multi-agent storyworld surface on which framed agents interact,
 and we report its pilot receipts honestly: pipeline proven, frame signal not yet
-established.
+established. The fourth chapter, implemented within that agentic surface,
+separates persona-conditioned proposals from an external typed membrane. It
+finds a selective benefit for the correctly matched boundary and harmful
+interventions from a semantically shuffled control.
 
 ### Contributions
 
@@ -118,6 +131,11 @@ established.
 - A validated multi-agent storyworld platform (frozen world families,
   five-condition dyad matrix with seat swap, leakage-guarded SFT promotion
   gates) for studying framed agents in interaction (§7).
+- A held-out 96-trace Qwen3-1.7B experiment separating neutral model behavior,
+  persona skill, matched MeTTa membrane, and shuffled membrane. The matched
+  system corrected the only critical Beast skill proposal and otherwise stayed
+  dormant; the shuffled control caused 11 revisions and three critical final
+  actions (§7).
 
 ## 2. Background and positioning
 
@@ -425,6 +443,54 @@ temptation/defection structure and reuse the adversarial stressors that
 separated frames in Study 2. Blind review of the justification turns for
 constitutional consistency is the outstanding step before any data promotion.
 
+### Exogenous skill-and-membrane experiment
+
+The null action-level convergence above and the negative short-SFT screen
+motivated a different architecture: let the model or adapter provide a proposal
+and recognizable public voice, but place hard boundary authority in an
+inspectable external membrane. We froze four conditions before model output:
+`model_only`, `skill_only`, `matched_membrane`, and
+`shuffled_membrane`. The matching membrane removed only actions scored
+`reject` by the exact frame-specific MeTTa policy, exposed surviving action IDs,
+allowed one public revision, and otherwise abstained. The learned LDT head was
+retained only as a soft routing receipt. The shuffled control rotated complete
+tag bundles among actions, preserving constraint intensity while breaking the
+semantic action-to-rule mapping.
+
+The held-out run used 12 three-action village tasks assembled from frozen test
+cells, two frames, and all four conditions (96 traces). The Jinn proposal
+surface used the unpromoted step-20 Qwen3-1.7B adapter; Beast used the same
+4-bit base without an adapter. Consequently, within-frame condition contrasts
+are causal but cross-frame Jinn-versus-Beast differences are descriptive.
+
+| Frame | Condition | Critical finals | Mean exact score | Revision rate |
+|---|---:|---:|---:|---:|
+| Jinn | model only | 0/12 | 0.693 | 0/12 |
+| Jinn | persona skill | 0/12 | 0.788 | 0/12 |
+| Jinn | matched membrane | 0/12 | 0.788 | 0/12 |
+| Jinn | shuffled membrane | 1/12 | 0.597 | 5/12 |
+| Beast | model only | 0/12 | 0.655 | 0/12 |
+| Beast | persona skill | 1/12 | 0.596 | 0/12 |
+| Beast | matched membrane | 0/12 | 0.638 | 1/12 |
+| Beast | shuffled membrane | 2/12 | 0.576 | 6/12 |
+
+The persona skill changed 4/12 Jinn and 5/12 Beast model-only actions. The
+matched membrane then preserved every Jinn skill proposal. On Beast it
+intervened once: the skill proposed a registered critical action (score 0.20),
+the membrane requested one revision, and the model selected a surviving action
+(score 0.70), with no abstention. The shuffled membrane changed 5/12 Jinn and
+6/12 Beast skill actions, requested 11 revisions, and ended with three critical
+actions. Relative to matched, its mean score was lower by 0.191 for Jinn and
+0.062 for Beast.
+
+This is evidence about system architecture, not a newly moral model. The
+correctly matched membrane was selective: dormant when the persona proposal
+already survived the registered boundary, active when one Beast proposal did
+not. The shuffled control shows that veto pressure by itself is not alignment;
+an incorrect membrane can degrade both efficiency and final action quality.
+The policies remain synthetic and theologically unvalidated, and 12 tasks per
+cell make the rates descriptive.
+
 ## 8. Evidence provenance and integrity
 
 The Study 1 and Study 2 numbers are **recovered pilot findings**. Exact compact
@@ -467,6 +533,19 @@ equivalence in general or normative superiority. The open question — whether
 developmental training produces frame-specific policy that prompting cannot —
 is exactly what the registered protocol is designed to answer.
 
+**From internalization to membrane governance.** The exogenous experiment
+answers a nearer-term engineering question. Persona skills moved proposals
+without reliably enforcing their nominal frame, while the correctly matched
+external boundary made one sparse, targeted correction. The shuffled control's
+worse outcome rules out the interpretation that any added veto layer is
+beneficial. The practical center of the paper therefore shifts from making a
+small adapter carry the whole constitution to composing three auditable roles:
+model or adapter as proposal and color; LDT as a soft candidate signal; exact
+MeTTa plus a bounded agent loop as hard routing and revision authority. This
+does not resolve which theological frame is valid. It makes the operational
+consequences of a chosen frame visible, replaceable, and falsifiable without
+claiming that the weights believe it.
+
 **For Islamic AI ethics frameworks.** The prompt-level null-specificity finding
 is itself theologically consequential: it argues against deployments that rely on
 religious framing *language* to secure trustworthy behavior, since a matched
@@ -502,8 +581,11 @@ model capacity and 4-bit single-GPU execution; the separate 30-step local
 MeTTa screen lacks a neutral SFT control and failed its flavored and guided
 criteria; the local Mīzān proxy lacks
 completed human and scholar validation and shows material option-order
-sensitivity; the storyworld frame signal is unestablished; scholar review of
-the frame cards is pending, and `F3_concrete` is not scholar-approved; any
+sensitivity; the storyworld frame signal is unestablished; the exogenous
+experiment has only 12 tasks per cell, uses synthetic audited tags, and
+confounds cross-frame comparison with Jinn-adapter versus Beast-base status;
+scholar review of the frame cards is pending, and `F3_concrete` is not
+scholar-approved; any
 registered fielding before review must disclose that pending state. The registered
 protocol carries mandatory risk controls from the religion-and-AI literature:
 detection of religious markers overriding harm recognition; fabricated
@@ -526,11 +608,22 @@ intervention while validating the no-cloud pipeline. The design's value
 is that a positive, null, or blocked outcome can be reported without changing
 the claim boundary after inspection.
 
+The strongest completed result is architectural. Persona skills changed
+proposals, but did not themselves guarantee their nominal boundary. A matched
+external MeTTa membrane made one necessary correction and no unnecessary Jinn
+corrections; a shuffled membrane made 11 interventions and produced three
+critical final actions. For this deadline-scale small-model study, the
+defensible claim is selective exogenous governance, not constitutional
+internalization: color may live in the adapter and skill, while enforceable
+boundaries remain explicit in the agentic control flow.
+
 ---
 
 *Artifact map: coordination repo (this paper, protocol v1, evidence ledger);
 `Pixieology/experiments/jinn_beast_multiagent_storyworlds/` (platform, frames,
-pilot receipts); `ConstitutionalAlignment/experiments/frame_internalization_sft_v1/`
+pilot receipts); `experiments/exogenous_skill_membrane_v1/` (registered
+membrane experiment, 96-trace result, receipts, and reusable skill);
+`ConstitutionalAlignment/experiments/frame_internalization_sft_v1/`
 (recovered protocol, amendments, scholar-review contracts). Citation keys and
 the Yarn/RSITopology conceptual-prior citation to be inserted before
 submission; per protocol, no reference may be invented from working notes.*

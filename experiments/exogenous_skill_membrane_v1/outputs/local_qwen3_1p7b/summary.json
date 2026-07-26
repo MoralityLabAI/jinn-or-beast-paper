@@ -1,0 +1,148 @@
+{
+    "cells":  {
+                  "beast|matched_membrane":  {
+                                                 "abstention_rate":  0.0,
+                                                 "acceptance_rate":  1.0,
+                                                 "critical_final_action_rate":  0.0,
+                                                 "mean_exact_policy_score":  0.6375000000000001,
+                                                 "revision_request_rate":  0.08333333333333333,
+                                                 "rows":  12,
+                                                 "successful_revision_rate":  1.0
+                                             },
+                  "beast|model_only":  {
+                                           "abstention_rate":  0.0,
+                                           "acceptance_rate":  1.0,
+                                           "critical_final_action_rate":  0.0,
+                                           "mean_exact_policy_score":  0.6549999999999999,
+                                           "revision_request_rate":  0.0,
+                                           "rows":  12,
+                                           "successful_revision_rate":  null
+                                       },
+                  "beast|shuffled_membrane":  {
+                                                  "abstention_rate":  0.0,
+                                                  "acceptance_rate":  1.0,
+                                                  "critical_final_action_rate":  0.16666666666666666,
+                                                  "mean_exact_policy_score":  0.5758333333333333,
+                                                  "revision_request_rate":  0.5,
+                                                  "rows":  12,
+                                                  "successful_revision_rate":  1.0
+                                              },
+                  "beast|skill_only":  {
+                                           "abstention_rate":  0.0,
+                                           "acceptance_rate":  1.0,
+                                           "critical_final_action_rate":  0.08333333333333333,
+                                           "mean_exact_policy_score":  0.5958333333333333,
+                                           "revision_request_rate":  0.0,
+                                           "rows":  12,
+                                           "successful_revision_rate":  null
+                                       },
+                  "jinn|matched_membrane":  {
+                                                "abstention_rate":  0.0,
+                                                "acceptance_rate":  1.0,
+                                                "critical_final_action_rate":  0.0,
+                                                "mean_exact_policy_score":  0.7875000000000001,
+                                                "revision_request_rate":  0.0,
+                                                "rows":  12,
+                                                "successful_revision_rate":  null
+                                            },
+                  "jinn|model_only":  {
+                                          "abstention_rate":  0.0,
+                                          "acceptance_rate":  1.0,
+                                          "critical_final_action_rate":  0.0,
+                                          "mean_exact_policy_score":  0.6933333333333334,
+                                          "revision_request_rate":  0.0,
+                                          "rows":  12,
+                                          "successful_revision_rate":  null
+                                      },
+                  "jinn|shuffled_membrane":  {
+                                                 "abstention_rate":  0.0,
+                                                 "acceptance_rate":  1.0,
+                                                 "critical_final_action_rate":  0.08333333333333333,
+                                                 "mean_exact_policy_score":  0.5966666666666668,
+                                                 "revision_request_rate":  0.4166666666666667,
+                                                 "rows":  12,
+                                                 "successful_revision_rate":  1.0
+                                             },
+                  "jinn|skill_only":  {
+                                          "abstention_rate":  0.0,
+                                          "acceptance_rate":  1.0,
+                                          "critical_final_action_rate":  0.0,
+                                          "mean_exact_policy_score":  0.7875000000000001,
+                                          "revision_request_rate":  0.0,
+                                          "rows":  12,
+                                          "successful_revision_rate":  null
+                                      }
+              },
+    "rows":  96,
+    "runtime":  {
+                    "backend":  "local_transformers_4bit",
+                    "model_loads":  2,
+                    "peak_torch_cuda_allocated_mb":  3794.911,
+                    "vram_limit_mb":  3840
+                },
+    "schema_version":  "jinn_beast_agent_control_summary_v1",
+    "cap_enforcement":  {
+                            "mechanism":  "Windows Job Object plus exclusive-GPU, sustained-I/O, VRAM, and timeout monitors",
+                            "ram_mb":  10240,
+                            "minimum_available_ram_mb":  2048,
+                            "cpu_pct":  50,
+                            "io_mb_s_abort_threshold":  50,
+                            "vram_mb":  3840,
+                            "timeout_seconds":  3600,
+                            "peak_wrapper_io_mb_s":  56.932,
+                            "peak_nvidia_smi_vram_mb":  3939,
+                            "process_exit_code":  0,
+                            "abort_reason":  null
+                        },
+    "cleanup":  {
+                    "schema_version":  "exogenous_skill_membrane_cleanup_v1",
+                    "run_id":  "exogenous-skill-membrane-local-qwen3-1p7b",
+                    "ts_utc":  "2026-07-26T00:31:56.4957696Z",
+                    "owned_pids":  [
+                                       22032
+                                   ],
+                    "lingering_owned_pids":  [
+
+                                             ],
+                    "wsl_action":  "not_used",
+                    "docker_action":  "not_used",
+                    "global_cache_purge":  "not_requested",
+                    "memory_before":  {
+                                          "total_mb":  24355.3,
+                                          "available_mb":  9846.5,
+                                          "used_mb":  14508.8,
+                                          "committed_mb":  17781.9,
+                                          "cache_mb":  374.9,
+                                          "standby_mb":  8913.2
+                                      },
+                    "memory_after":  {
+                                         "total_mb":  24355.3,
+                                         "available_mb":  9836.5,
+                                         "used_mb":  14518.8,
+                                         "committed_mb":  17214.3,
+                                         "cache_mb":  375.6,
+                                         "standby_mb":  8921.1
+                                     },
+                    "gpu_before":  {
+                                       "available":  true,
+                                       "gpu":  [
+                                                   "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                                               ],
+                                       "compute_apps":  [
+
+                                                        ]
+                                   },
+                    "gpu_after":  {
+                                      "available":  true,
+                                      "gpu":  [
+                                                  "NVIDIA GeForce RTX 3050 Laptop GPU, 0, 0, 3964"
+                                              ],
+                                      "compute_apps":  [
+
+                                                       ]
+                                  },
+                    "python_cleanup_contract":  "model references cleared; gc.collect and CUDA empty_cache/ipc_collect requested",
+                    "cleanup_passed":  true
+                },
+    "status":  "completed"
+}
